@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\JYUN3\.android\build-cache\67a497b7ea07bbf9205c897af8fbe3af888dd8f2\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="746274223beb11b1cda7854d7eec3038695c2c93">
+        <dex dex="C:\Users\JYUN3\Desktop\Projects\NativeScript\mygame\mobile\platforms\android\app\build\intermediates\pre-dexed\debug\classes_c4f412740440117e60b5686d784d9f68ab7f45a2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\JYUN3\.android\build-cache\199864fabca85203edf1124dc784dc921f61e7b8\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="dd431d6aa9ce9dc0d429fcd239d412a82ea0e9a7">
+        <dex dex="C:\Users\JYUN3\Desktop\Projects\NativeScript\mygame\mobile\platforms\android\app\build\intermediates\pre-dexed\debug\classes_5cca5a2392bfdd66db56fdbf237bf0b829e32586.jar" />
+    </item>
+
+</items>
