@@ -10,17 +10,17 @@ export class AppController {
 
   @Get('spells')
   getSpells(): Spell[] {
-    return [{name: 'Fireball', mana: 3}, {name: 'Hurt', mana: 3}, {name: 'Heal', mana: 3}];
+    return [{name: 'Fireball', mana: 3, damage: 2}, {name: 'Hurt', mana: 3, damage: 2}, {name: 'Heal', mana: 3, damage: 2}];
   }
 
   @Get('spells/tier/:tier')
   getSpellsByTier(@Param('tier') tier: number): Spell[] {
     if (tier == 2){
-      return [{name: 'Fireballs', mana: 3}, {name: 'HurtMore', mana: 3}, {name: 'HealMore', mana: 3}];
+      return [{name: 'Fireballs', mana: 3, damage: 3}, {name: 'HurtMore', mana: 3, damage: 3}, {name: 'HealMore', mana: 3, damage: 3}];
     }
     else
     {
-      return [{name: 'Fireball', mana: 3}, {name: 'Hurt', mana: 3}, {name: 'Heal', mana: 3}];
+      return [{name: 'Fireball', mana: 3, damage: 2}, {name: 'Hurt', mana: 3, damage: 2}, {name: 'Heal', mana: 3, damage: 2}];
     }
   }
 }
