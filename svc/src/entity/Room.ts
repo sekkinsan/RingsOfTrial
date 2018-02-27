@@ -2,8 +2,8 @@ import { BaseEntity } from "typeorm/repository/BaseEntity";
 import {Entity, PrimaryColumn, Column} from "typeorm";
 
 @Entity()
-export class Zone{
+export class Room{
 
     @PrimaryColumn()
-    zone: number;
+    room: number;
 }
