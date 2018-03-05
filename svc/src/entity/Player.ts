@@ -1,10 +1,10 @@
 import { BaseEntity } from "typeorm/repository/BaseEntity";
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
-import { Spell } from "../entity/Spell";
-import { Inventory } from "../entity/Inventory";
-import { Ring } from "../entity/Ring";
-import { Zone } from "../entity/Zone";
-import { Room } from "../entity/Room";
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, OneToOne, JoinColumn} from "typeorm";
+import { Spell } from "./Spell";
+import { Inventory } from "./Inventory";
+import { Ring } from "./Ring";
+import { Zone } from "./Zone";
+import { Room } from "./Room";
 
 
 @Entity()
@@ -23,7 +23,7 @@ export class Player {
     mana: number;
 
    // @Column()
-   // spellbook: Spell[];
+   // spells: Spell[];
 
   //  @Column()
   //  inventory: Inventory[];
@@ -36,5 +36,16 @@ export class Player {
 
     @Column()
     currentRoom: number;
+
+    @OneToOne(type => Inventory, inventory => inventory.player)
+    @JoinColumn()
+    inventory: Inventory;
+
+    @OneToOne(type => Spell, spell => spell.player)
+    @JoinColumn()
+    spell: Spell;
+
+    @OneToMany(type => Ring, ring => ring.player)
+    rings: Ring[];
 
 }

@@ -1,6 +1,7 @@
 import { Get, Controller, Param } from '@nestjs/common';
-import { Spell } from '../../shared/spell';
+import { Spell } from './entity/Spell';
 import { Player } from './entity/Player';
+import { Inventory } from './entity/Inventory';
 import { createConnection } from 'typeorm';
 
 @Controller()
@@ -33,21 +34,43 @@ export class AppController {
   @Get('seed')
   seed(): void {
     //put in all code to seed my database, in a way I can trigger any time conveniently 2/26
+    //????? not quite sure what I need to have done.
+    const player1 = new Player();
+    player1.name = "Player1"
+    player1.health = 20;
+    player1.mana = 20;
+    player1.currentRing = 1;
+    player1.currentZone = 2;
+    player1.currentRoom = 2;
+    
+    const spell1 = new Spell();
+    spell1.name = "Fire"
+    spell1.damage = 5;
+    spell1.mana = 5;
+    spell1.player = player1;
+
+    const inventory = new Inventory();
+    //need to have more than one item in inventory, how to distinguish?
+    inventory.id = 1;
+    inventory.name = "Key";
+    inventory.player = player1;
+
+
   }
 
-  @Get('spells')
-  getSpells(): Spell[] {
-    return [{name: 'Fireball', mana: 3, damage: 2}, {name: 'Hurt', mana: 3, damage: 2}, {name: 'Heal', mana: 3, damage: 2}];
-  }
+  // @Get('spells')
+  // getSpells(): Spell[] {
+  //   return [{name: 'Fireball', mana: 3, damage: 2}, {name: 'Hurt', mana: 3, damage: 2}, {name: 'Heal', mana: 3, damage: 2}];
+  // }
 
-  @Get('spells/tier/:tier')
-  getSpellsByTier(@Param('tier') tier: number): Spell[] {
-    if (tier == 2){
-      return [{name: 'Fireballs', mana: 3, damage: 3}, {name: 'HurtMore', mana: 3, damage: 3}, {name: 'HealMore', mana: 3, damage: 3}];
-    }
-    else
-    {
-      return [{name: 'Fireball', mana: 3, damage: 2}, {name: 'Hurt', mana: 3, damage: 2}, {name: 'Heal', mana: 3, damage: 2}];
-    }
-  }
+  // @Get('spells/tier/:tier')
+  // getSpellsByTier(@Param('tier') tier: number): Spell[] {
+  //   if (tier == 2){
+  //     return [{name: 'Fireballs', mana: 3, damage: 3}, {name: 'HurtMore', mana: 3, damage: 3}, {name: 'HealMore', mana: 3, damage: 3}];
+  //   }
+  //   else
+  //   {
+  //     return [{name: 'Fireball', mana: 3, damage: 2}, {name: 'Hurt', mana: 3, damage: 2}, {name: 'Heal', mana: 3, damage: 2}];
+  //   }
+  // }
 }

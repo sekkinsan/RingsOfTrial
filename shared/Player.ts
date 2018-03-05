@@ -8,7 +8,7 @@ export class Player {
   id: number;
   health: number;
   mana: number;
-  //spellbook: Spell[];
+  //spells: Spell[];
   //inventory: Inventory[];
   currentRing: number;
   currentZone: number;
@@ -16,7 +16,7 @@ export class Player {
   
 
   //constructor(){
-  //  this.spellbook[0].mana = 20;
+  //  this.spells[0].mana = 20;
   //  this.inventory.length = 10;
   //}
 }
