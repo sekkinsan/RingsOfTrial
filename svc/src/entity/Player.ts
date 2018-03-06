@@ -22,12 +22,6 @@ export class Player {
     @Column()
     mana: number;
 
-   // @Column()
-   // spells: Spell[];
-
-  //  @Column()
-  //  inventory: Inventory[];
-
     @Column()
     currentRing: number;
 
@@ -40,12 +34,12 @@ export class Player {
     @OneToOne(type => Inventory, inventory => inventory.player)
     @JoinColumn()
     inventory: Inventory;
+    
+    @OneToMany(type => Spell, spell => spell.player)
+    spells: Spell[];
 
-    @OneToOne(type => Spell, spell => spell.player)
+    @OneToOne(type => Ring, ring => ring.player)
     @JoinColumn()
-    spell: Spell;
-
-    @OneToMany(type => Ring, ring => ring.player)
-    rings: Ring[];
+    ring: Ring;
 
 }

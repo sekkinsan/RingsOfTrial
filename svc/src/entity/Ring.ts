@@ -1,5 +1,5 @@
 import { BaseEntity } from "typeorm/repository/BaseEntity";
-import {Entity, PrimaryColumn, Column, OneToMany, ManyToOne} from "typeorm";
+import {Entity, PrimaryColumn, Column, OneToMany, OneToOne} from "typeorm";
 import {Zone} from "./Zone"
 import {Player} from "./Player"
 
@@ -12,6 +12,6 @@ export class Ring {
     @OneToMany(type => Zone, zone => zone.ring)
     zones: Zone[];
 
-    @ManyToOne(type => Player, player => player.rings)
+    @OneToOne(type => Player, player => player.ring)
     player: Player;
 }
