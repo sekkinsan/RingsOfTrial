@@ -2,6 +2,7 @@ import { BaseEntity } from "typeorm/repository/BaseEntity";
 import {Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, OneToOne, JoinColumn} from "typeorm";
 import { Spell } from "./Spell";
 import { Inventory } from "./Inventory";
+import { Item } from "./Item";
 import { Ring } from "./Ring";
 import { Zone } from "./Zone";
 import { Room } from "./Room";

@@ -1,5 +1,5 @@
 import { BaseEntity } from "typeorm/repository/BaseEntity";
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, PrimaryColumn, Column, ManyToOne} from "typeorm";
 import { Inventory } from "./Inventory";
 
 @Entity()
