@@ -2,6 +2,7 @@ import { BaseEntity } from "typeorm/repository/BaseEntity";
 import {Entity, PrimaryColumn, Column, OneToMany, OneToOne} from "typeorm";
 import {Zone} from "./Zone"
 import {Player} from "./Player"
+import { Enemy } from "./Enemy";
 
 @Entity()
 export class Ring {
@@ -14,4 +15,9 @@ export class Ring {
 
     @OneToOne(type => Player, player => player.ring)
     player: Player;
+
+    @OneToOne(type => Enemy, enemy => enemy.ring)
+    enemy: Enemy;
+
+
 }

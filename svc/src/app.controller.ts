@@ -4,6 +4,7 @@ import { Player } from './entity/Player';
 import { Inventory } from './entity/Inventory';
 import { Item } from './entity/Item';
 import { createConnection } from 'typeorm';
+import { Enemy } from './entity/Enemy';
 
 @Controller()
 export class AppController {
@@ -43,6 +44,14 @@ export class AppController {
     player1.currentZone = 2;
     player1.currentRoom = 2;
 
+    const enemy1 = new Enemy();
+    enemy1.name = "Boss"
+    enemy1.health = 20;
+    enemy1.mana = 20;
+    enemy1.currentRing = 1;
+    enemy1.currentZone = 2;
+    enemy1.currentRoom = 2;
+
     
     const spell1 = new Spell();
     spell1.name = "Fire";
@@ -55,19 +64,36 @@ export class AppController {
     player1.spells = [];
     player1.spells.push(spell1);
 
+    //loading spells into enemy
+    enemy1.spells = [];
+    enemy1.spells.push(spell1);
+
     const item1 = new Item();
     item1.name = "sword";
     await connection.manager.save(item1);
+
+    const item2 = new Item();
+    item2.name = "key";
+    await connection.manager.save(item2);
     
-    const inventory = new Inventory();
-    inventory.name = "my items";
-    inventory.player = player1;
-    await connection.manager.save(inventory);
+    const playerInventory = new Inventory();
+    playerInventory.name = "my items";
+    playerInventory.player = player1;
+    await connection.manager.save(playerInventory);
+
+    const enemyInventory = new Inventory();
+    enemyInventory.name = "boss items";
+    enemyInventory.player = enemy1;
+    await connection.manager.save(enemyInventory);
 
     player1.inventory.items = [];
     player1.inventory.items.push(item1);
+    enemy1.inventory.items = [];
+    enemy1.inventory.items.push(item2);
+    //when enemy1 health = 0, push key to player1 inventory
 
     await connection.manager.save(player1);
+    await connection.manager.save(enemy1);
 
     
   }).catch(error => console.log(error));

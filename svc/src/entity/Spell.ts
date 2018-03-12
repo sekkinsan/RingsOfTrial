@@ -1,6 +1,7 @@
 import { BaseEntity } from "typeorm/repository/BaseEntity";
 import {Entity, PrimaryColumn, Column, OneToOne, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {Player} from "./Player"
+import { Enemy } from "./Enemy";
 
 
 @Entity()
@@ -20,6 +21,9 @@ export class Spell{
 
     @ManyToOne(type => Player, player => player.spells)
     player: Player;
+
+    @OneToOne(type => Enemy, enemy => enemy.spells)
+    enemy: Enemy;
 
 }
 
