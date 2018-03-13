@@ -35,7 +35,7 @@ export class AppController {
   
   @Get('seed')
   seed(): void {
-    createConnection().then(async connection => {
+
     const player1 = new Player();
     player1.name = "TestSubject"
     player1.health = 20;
@@ -43,6 +43,7 @@ export class AppController {
     player1.currentRing = 1;
     player1.currentZone = 2;
     player1.currentRoom = 2;
+    
 
     const enemy1 = new Enemy();
     enemy1.name = "Boss"
@@ -57,8 +58,8 @@ export class AppController {
     spell1.name = "Fire";
     spell1.damage = 5;
     spell1.mana = 5;
-    spell1.player = player1;
-    await connection.manager.save(spell1);
+   // spell1.player = player1;
+   // await connection.manager.save(spell1);
 
     //loading spells into player
     player1.spells = [];
@@ -70,33 +71,33 @@ export class AppController {
 
     const item1 = new Item();
     item1.name = "sword";
-    await connection.manager.save(item1);
+    //await connection.manager.save(item1);
 
     const item2 = new Item();
     item2.name = "key";
-    await connection.manager.save(item2);
+   // await connection.manager.save(item2);
     
     const playerInventory = new Inventory();
     playerInventory.name = "my items";
-    playerInventory.player = player1;
-    await connection.manager.save(playerInventory);
+    //playerInventory.player = player1;
+    player1.inventory = playerInventory;
+   // await connection.manager.save(playerInventory);
 
     const enemyInventory = new Inventory();
     enemyInventory.name = "boss items";
-    enemyInventory.player = enemy1;
-    await connection.manager.save(enemyInventory);
+    //enemyInventory.player = enemy1;
+    //await connection.manager.save(enemyInventory);
 
     player1.inventory.items = [];
     player1.inventory.items.push(item1);
-    enemy1.inventory.items = [];
-    enemy1.inventory.items.push(item2);
+   // enemy1.inventory.items = [];
+    //enemy1.inventory.items.push(item2);
     //when enemy1 health = 0, push key to player1 inventory
 
-    await connection.manager.save(player1);
-    await connection.manager.save(enemy1);
+    //await connection.manager.save(player1);
+    //await connection.manager.save(enemy1);
+    console.log(JSON.stringify(player1));
 
-    
-  }).catch(error => console.log(error));
 }
 
   // @Get('spells')
