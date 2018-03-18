@@ -1,0 +1,94 @@
+{
+    "enemies": [
+      {
+        "name": "Grimlord",
+        "health": 5,
+        "mana": 5,
+        "spells": "Easy"
+      },
+      {
+        "name": "Goomba",
+        "health": 5,
+        "mana": 5,
+        "spells": "Easy"
+      },
+      {
+        "name": "Shark",
+        "health": 5,
+        "mana": 5,
+        "spells": "Easy"
+      },
+      {
+        "name": "Tanuki",
+        "health": 5,
+        "mana": 5,
+        "spells": "Easy"
+      },
+      {
+        "name": "Ken",
+        "health": 10,
+        "mana": 10,
+        "spells": "Easy"
+      },
+      {
+        "name": "Demon",
+        "health": 20,
+        "mana": 10,
+        "spells": "Int"
+      },
+      {
+        "name": "Angel",
+        "health": 20,
+        "mana": 10,
+        "spells": "Int"
+      },
+      {
+        "name": "Pirate",
+        "health": 20,
+        "mana": 10,
+        "spells": "Int"
+      },
+      {
+        "name": "Sunflower",
+        "health": 20,
+        "mana": 10,
+        "spells": "Int"
+      },
+      {
+        "name": "Luffy",
+        "health": 30,
+        "mana": 15,
+        "spells": "Int"
+      },
+      {
+        "name": "Beezlebub",
+        "health": 30,
+        "mana": 15,
+        "spells": "Boss"
+      },
+      {
+        "name": "LUcifer",
+        "health": 30,
+        "mana": 15,
+        "spells": "Boss"
+      },
+      {
+        "name": "Poseidon",
+        "health": 30,
+        "mana": 15,
+        "spells": "Boss"
+      },
+      {
+        "name": "Gaia",
+        "health": 30,
+        "mana": 15,
+        "spells": "Boss"
+      },
+      {
+        "name": "Jacob",
+        "health": 40,
+        "mana": 20,
+        "spells": "Boss"
+      }
+    ]
+  }

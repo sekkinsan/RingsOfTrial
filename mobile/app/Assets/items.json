@@ -1,5 +1,19 @@
 {
   "droppableItems": [
-    {"name": "Key of Destiny"}
+    {
+      "name": "Key of Destiny"
+    },
+    {
+      "name": "Key of Death"
+    },
+    {
+      "name": "Key of Light"
+    },
+    {
+      "name": "Key of Shadow"
+    },
+    {
+      "name": "Key of Life"
+    }
   ]
 }

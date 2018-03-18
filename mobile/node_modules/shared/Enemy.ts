@@ -6,6 +6,7 @@ import { Room } from "./room";
 
 export class Enemy {
   id: number;
+  name: string;
   health: number;
   mana: number;
   spells: Spell[];
