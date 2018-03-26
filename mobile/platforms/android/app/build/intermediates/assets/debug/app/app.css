@@ -1,1 +1,17 @@
 @import "nativescript-theme-core/css/core.light.css";
+@import url("~/platform.css");
+
+Page {
+  background-image: ~/images/dungeon-door.jpg;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-size: 15;
+}
+
+TextField {
+  background-color: white;
+  padding: 10;
+  font-size: 13;
+}
+

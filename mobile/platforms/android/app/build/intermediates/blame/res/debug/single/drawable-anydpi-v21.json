@@ -1,7 +1,15 @@
 [
     {
+        "merged": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\RingsOfTrial\\mobile\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\design_ic_visibility.xml",
+        "source": "C:\\Users\\JYUN3\\.android\\build-cache\\229afda3eaedc072dbff24eef2147fd3b08a9336\\output\\res\\drawable-anydpi-v21\\design_ic_visibility.xml"
+    },
+    {
         "merged": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\mygame\\mobile\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\design_ic_visibility.xml",
         "source": "C:\\Users\\JYUN3\\.android\\build-cache\\229afda3eaedc072dbff24eef2147fd3b08a9336\\output\\res\\drawable-anydpi-v21\\design_ic_visibility.xml"
+    },
+    {
+        "merged": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\RingsOfTrial\\mobile\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\design_ic_visibility_off.xml",
+        "source": "C:\\Users\\JYUN3\\.android\\build-cache\\229afda3eaedc072dbff24eef2147fd3b08a9336\\output\\res\\drawable-anydpi-v21\\design_ic_visibility_off.xml"
     },
     {
         "merged": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\mygame\\mobile\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\design_ic_visibility_off.xml",

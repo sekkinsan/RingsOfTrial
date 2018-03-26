@@ -1,5 +1,5 @@
-import { Player } from "../../shared/Player";
-import { Item } from "../../shared/Item";
+import { Player } from "./models/Player";
+import { Item } from "./models/Item";
 
 import {
     getBoolean,

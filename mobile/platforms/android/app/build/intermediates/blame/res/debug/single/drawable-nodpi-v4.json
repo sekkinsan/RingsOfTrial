@@ -2,5 +2,9 @@
     {
         "merged": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\mygame\\mobile\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4\\splash_screen.xml",
         "source": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\mygame\\mobile\\platforms\\android\\app\\src\\main\\res\\drawable-nodpi\\splash_screen.xml"
+    },
+    {
+        "merged": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\RingsOfTrial\\mobile\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4\\splash_screen.xml",
+        "source": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\RingsOfTrial\\mobile\\platforms\\android\\app\\src\\main\\res\\drawable-nodpi\\splash_screen.xml"
     }
 ]

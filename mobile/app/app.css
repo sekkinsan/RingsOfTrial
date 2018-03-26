@@ -10,6 +10,7 @@ Page {
 }
 
 TextField {
+  background-color: white;
   padding: 10;
   font-size: 13;
 }
