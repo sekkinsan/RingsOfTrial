@@ -30,21 +30,11 @@ export class LoginComponent {
     }
   }
   login() {
-    this.playerService.login(this.player)
-    .subscribe(
-        () => this.router.navigate(["/map"]),
-        (error) => alert("Unfortunately we could not find your account.")
-    );
+    this.playerService.getPlayer();
+    this.router.navigate(["/map"]);
   }
   signUp() {
-    this.playerService.register(this.player)
-      .subscribe(
-        () => {
-          alert("Your account was successfully created.");
-          this.toggleDisplay();
-        },
-        () => alert("Unfortunately we were unable to create your account.")
-      );
+    alert(this.playerService.create(this.player));
   }
 
   toggleDisplay() {

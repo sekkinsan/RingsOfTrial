@@ -1,5 +1,6 @@
 import { Player } from "./models/Player";
 import { Item } from "./models/Item";
+import { Injectable } from "@angular/core";
 
 import {
     getBoolean,
@@ -13,6 +14,7 @@ import {
     clear
 } from "application-settings";
 
+@Injectable()
 export class SaveManager {
     savePlayer(player: Player): Boolean {
         let str = JSON.stringify(player);

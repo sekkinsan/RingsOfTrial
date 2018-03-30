@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Http, Headers, Response, HttpModule } from "@angular/http";
 import { HttpClientModule } from '@angular/common/http';
 import { Observable } from "rxjs/Observable";
+import { SaveManager } from "../../saver";
 import "rxjs/add/operator/catch";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
@@ -13,7 +14,7 @@ import { Config } from "../config"
 
 @Injectable()
 export class PlayerService {
-  constructor(private http: Http) {}
+  constructor(private http: Http, private saveManager: SaveManager) {}
 
   register(player: Player) {
     return this.http.post(
@@ -25,6 +26,14 @@ export class PlayerService {
       { headers: this.getCommonHeaders() }
     )
     .catch(this.handleErrors);
+  }
+
+  create(player: Player) : Boolean {
+    return this.saveManager.savePlayer(player);
+  }
+
+  getPlayer() : Player {
+    return this.saveManager.loadPlayer();
   }
 
   getCommonHeaders() {

@@ -3,7 +3,7 @@ import { MapComponent } from "./pages/map/map.component";
 
 export const routes = [
   { path: "", component: LoginComponent },
-  { path: "../app/pages/map", component: MapComponent }
+  { path: "map", component: MapComponent }
 ];
 
 export const navigatableComponents = [
