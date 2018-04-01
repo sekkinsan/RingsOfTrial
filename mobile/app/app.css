@@ -2,7 +2,6 @@
 @import url("~/platform.css");
 
 Page {
-  background-image: ~/images/dungeon-door.jpg;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

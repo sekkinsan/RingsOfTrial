@@ -1,6 +1,10 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { PlayerService } from "../../shared/player/player.service";
 import { Player } from "../../models/Player";
+import { Router } from "@angular/router";
+import { Page } from "ui/page";
+import { View } from "ui/core/view";
+import * as absoluteLayoutModule from "tns-core-modules/ui/layouts/absolute-layout";
 
 
 @Component({
@@ -11,8 +15,27 @@ import { Player } from "../../models/Player";
   styleUrls: ["./map-common.css", "./map.css"]
 })
 export class MapComponent {
+
   player: Player;
-  constructor(private playerService: PlayerService) {
+  cleared = Boolean;
+
+  constructor(private router: Router, private playerService: PlayerService, private page: Page) {
     this.player = this.playerService.getPlayer();
+
   }
+
+  submit() {
+    this.enter();
+  }
+
+  enter() {
+    this.router.navigate(["/zone"]);
+  }
+
+  warn() {
+    alert("You can't access this yet!");
+  }
+
 }
+
+  

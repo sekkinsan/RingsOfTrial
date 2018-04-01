@@ -1,8 +1,10 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Player } from "../../models/Player"
 import { PlayerService } from "../../shared/player/player.service";
 import { Router } from "@angular/router";
-
+import { Page } from "ui/page";
+import { Color } from "color";
+import { View } from "ui/core/view";
 
 @Component({
   selector: "my-app",
@@ -11,12 +13,12 @@ import { Router } from "@angular/router";
   styleUrls: ["pages/login/login-common.css"]
 })
 
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   // Your TypeScript logic goes here
   player: Player;
   isLoggingIn = true;
 
-  constructor(private router: Router, private playerService: PlayerService) {
+  constructor(private router: Router, private playerService: PlayerService, private page: Page) {
     this.player = new Player();
     this.player.username = "username";
     this.player.password = "password";
@@ -39,5 +41,9 @@ export class LoginComponent {
 
   toggleDisplay() {
     this.isLoggingIn = !this.isLoggingIn;
+  }
+
+  ngOnInit() {
+    this.page.actionBarHidden = true;
   }
 }

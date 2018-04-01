@@ -1,6 +1,7 @@
 <ActionBar title="Rings of Trial" class="action-bar"></ActionBar>
 
-<StackLayout class="background-image">
+<Page>
+<StackLayout #container class="background-image">
 <TextField hint="username" [(ngModel)]="player.username"
 autocorrect="false" autocapitalizationType="none"></TextField>
 <TextField hint="Password" secure="true" [(ngModel)]="player.password"></TextField>
@@ -8,3 +9,4 @@ autocorrect="false" autocapitalizationType="none"></TextField>
 <Button [text]="isLoggingIn ? 'Continue your journey' : 'Start your journey'" class="submit-button" (tap)="submit()"></Button>
 <Button [text]="isLoggingIn ? 'Start your journey' : 'Back to login'" (tap)="toggleDisplay()"></Button>
 </StackLayout>
+</Page>

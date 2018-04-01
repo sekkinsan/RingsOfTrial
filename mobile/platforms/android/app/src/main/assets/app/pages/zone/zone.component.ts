@@ -8,20 +8,21 @@ import * as absoluteLayoutModule from "tns-core-modules/ui/layouts/absolute-layo
 
 
 @Component({
-  selector: "map",
+  selector: "zone",
   moduleId: module.id,
-  templateUrl: "./map.html",
+  templateUrl: "./zone.html",
   providers: [PlayerService],
-  styleUrls: ["./map-common.css", "./map.css"]
+  styleUrls: ["./zone-common.css"]
 })
-export class MapComponent {
+
+export class ZoneComponent{
 
   player: Player;
   cleared = Boolean;
-
-  constructor(private router: Router, private playerService: PlayerService, private page: Page) {
+  
+  constructor(private playerService: PlayerService, private page: Page) {
     this.player = this.playerService.getPlayer();
-
+  
   }
 
   submit() {
@@ -29,13 +30,11 @@ export class MapComponent {
   }
 
   enter() {
-    this.router.navigate(["/zone"]);
+    alert("OK!");
   }
 
   warn() {
     alert("You can't access this yet!");
   }
-
-}
-
   
+}
