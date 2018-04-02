@@ -18,23 +18,27 @@ import * as absoluteLayoutModule from "tns-core-modules/ui/layouts/absolute-layo
 export class ZoneComponent{
 
   player: Player;
-  cleared = Boolean;
+  isCleared = true;
   
-  constructor(private playerService: PlayerService, private page: Page) {
+  constructor(private router: Router, private playerService: PlayerService, private page: Page) {
     this.player = this.playerService.getPlayer();
-  
+
   }
 
   submit() {
-    this.enter();
+    if (this.isCleared) {
+      this.enter();
+    } else {
+      this.warn();
+    }
   }
 
   enter() {
-    alert("OK!");
+    this.router.navigate(["/room"]);
   }
 
   warn() {
     alert("You can't access this yet!");
   }
-  
+
 }

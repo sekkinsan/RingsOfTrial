@@ -17,7 +17,7 @@ import * as absoluteLayoutModule from "tns-core-modules/ui/layouts/absolute-layo
 export class MapComponent {
 
   player: Player;
-  cleared = Boolean;
+  isCleared = true;
 
   constructor(private router: Router, private playerService: PlayerService, private page: Page) {
     this.player = this.playerService.getPlayer();
@@ -25,7 +25,11 @@ export class MapComponent {
   }
 
   submit() {
-    this.enter();
+    if (this.isCleared) {
+      this.enter();
+    } else {
+      this.warn();
+    }
   }
 
   enter() {
