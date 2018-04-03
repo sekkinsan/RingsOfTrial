@@ -1,7 +1,9 @@
 {
     "rooms": [
       {
-        "number": 1
+        "number": 1,
+        "mobs": [1,2,3,4]
+        
       },
       {
         "number": 2
