@@ -1,7 +1,8 @@
 <Page>
     <StackLayout orientation="vertical" backgroundColor="lightgray">
-        <Label text="This is where enemy will be" height="25%" backgroundColor="green"></Label>
-        <Label text="This is where combat text will be" height="25%" backgroundColor="red"></Label>
-        <Label text="This is where player menu will be skills and stuff" height="50%" backgroundColor="blue"></Label>
+        <Button text="{{ enemy.name }}" height="25%" backgroundColor="white" (tap) = "getEnemyHealth()" ></Button>
+        <Label text="COMBAT TEXT" height="25%" backgroundColor="white"></Label>
+        <Button text="{{ player.health }}" height ="105" backgroundColor="white"></Button>
+        <Button text="SPELL!!" height="40%" backgroundColor="white" (tap) = "getSpell()"></Button>
     </StackLayout>
 </Page>

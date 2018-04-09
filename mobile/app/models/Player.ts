@@ -10,7 +10,7 @@ export class Player {
   password: string;
   health: number;
   mana: number;
-  //spells: Spell[];
+  spells: Spell[];
   inventory: Inventory;
   currentRing: number;
   currentZone: number;

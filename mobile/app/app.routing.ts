@@ -8,7 +8,7 @@ export const routes = [
   { path: "", component: LoginComponent },
   { path: "map", component: MapComponent },
   { path: "zone", component: ZoneComponent },
-  { path: "room", component: RoomComponent },
+  { path: "room/:id", component: RoomComponent },
   { path: "inventory", component: InventoryComponent}
 ];
 

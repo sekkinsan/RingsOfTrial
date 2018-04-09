@@ -25,16 +25,16 @@ export class ZoneComponent{
 
   }
 
-  submit() {
+  submit(roomId: Number) {
     if (this.isCleared) {
-      this.enter();
+      this.enter(roomId);
     } else {
       this.warn();
     }
   }
 
-  enter() {
-    this.router.navigate(["/room"]);
+  enter(roomId: Number) {
+    this.router.navigate(["/room", roomId]);
   }
 
   warn() {

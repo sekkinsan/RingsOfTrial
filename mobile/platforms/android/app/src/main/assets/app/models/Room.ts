@@ -1,3 +1,6 @@
+import { Enemy } from "../models/Enemy";
+
 export class Room {
-    room: number;
+    id: number;
+    mobs: number[];
 }
