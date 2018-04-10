@@ -32,6 +32,11 @@ export class PlayerService {
     return this.saveManager.savePlayer(player);
   }
 
+  clearedRoom(player: Player, roomId: number){
+    player.clearedRooms.push(roomId);
+    this.saveManager.savePlayer(player);
+  }
+
   getPlayer() : Player {
     return this.saveManager.loadPlayer();
   }

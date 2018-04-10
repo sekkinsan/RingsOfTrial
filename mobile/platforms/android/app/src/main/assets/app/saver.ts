@@ -1,5 +1,6 @@
 import { Player } from "./models/Player";
 import { Item } from "./models/Item";
+import { Spell } from "./models/spell";
 import { Injectable } from "@angular/core";
 
 import {
@@ -38,5 +39,18 @@ export class SaveManager {
 
         console.log(JSON.stringify(items));
         return items;
+    }
+
+    saveSpells(spell: Spell): Boolean {
+        let spells = [];
+        let str = JSON.stringify(spells);
+        setString("spells", str);
+        return true;
+    }
+
+    loadSpells(): Spell {
+        let spells = [];
+        let str = getString("spells");
+        return JSON.parse(str);
     }
 }

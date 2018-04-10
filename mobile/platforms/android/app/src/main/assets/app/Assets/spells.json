@@ -1,5 +1,6 @@
 {
-    "Easy": [
+    "spells": {
+      "Easy": [
       {
         "id": 1,
         "name": "punch",
@@ -119,4 +120,5 @@
         "damage": 10
       }
     ]
+  }
   }

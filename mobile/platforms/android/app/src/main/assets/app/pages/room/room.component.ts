@@ -24,30 +24,89 @@ import * as absoluteLayoutModule from "tns-core-modules/ui/layouts/absolute-layo
 
 export class RoomComponent{
 
-  spellbook: Spell[];
   player: Player;
-  cleared = Boolean;
   enemy: Enemy;
   room: Room;
   spell: Spell;
+  cleared = false;
+  combatArray = [];
+  combatInterval: number;
+  combatText = "";
 
   constructor(private route: ActivatedRoute, private playerService: PlayerService, private enemyService: EnemyService, private roomService: RoomService, private spellService: SpellService, private page: Page) {
     this.player = this.playerService.getPlayer();
     this.player.health = 10;
+    this.player.mana = 10;
+    // this.player.spells = [];
+    // this.player.spells[0].name = "fireball";
+    // this.player.spells[0].damage = 2;
+    // this.player.spells[0].mana = 2;
     this.room = this.roomService.getRoomById(Number.parseInt(this.route.snapshot.paramMap.get('id')));
     this.enemy = this.enemyService.getRandomEnemy(this.room);
     // this.spell = this.spellService.getSpellById(1);
     console.log(JSON.stringify(this.enemy));
-    console.log(JSON.stringify(this.spell));
+    // console.log(JSON.stringify(this.player.spells[0].name));
   }
 
-  getEnemyHealth() {
-   alert(this.enemyService.getEnemyHealth(this.enemy));
+  // useSpell() {
+  //   console.log("you are about to use" + JSON.stringify(this.player.spells[0].name))
+  //   if (this.player.mana >= this.player.spells[0].mana) {
+  //     alert("CASTING {{ this.player.spells[0].name }} ")
+  //     this.enemy.health = this.enemy.health - this.player.spells[0].damage
+  //     this.player.mana = this.player.mana - this.player.spells[0].mana
+  //     console.log("You dealt " + JSON.stringify(this.player.spells[0].damage) + " to" + this.enemy)
+  //     console.log("You used " + JSON.stringify(this.player.spells[0].mana) + " mana.");
+  //   } else {
+  //     alert( "YOU DONT HAVE ENOUGH MANA!")
+  //   }
+
+  testPlayerCombat() {
+    if (this.player.mana >= 3) {
+      this.combatArray.push("You're about to use SPELL NAME")
+      this.enemy.health = this.enemy.health - 3;
+      this.player.mana = this.player.mana - 3;
+      this.combatArray.push("You dealt 3 damage")
+      this.combatArray.push("You used 3 mana")
+      this.testEnemyCombat();
+    } else {
+      this.combatArray.push("You don't have enough mana!")
+    }
+    console.log(JSON.stringify(this.combatArray));
+    // this.combatInterval = setInterval(this.combatArray), 5000);
+    // this.combatArray = [];
+    // console.log(JSON.stringify(this.combatArray));
   }
 
-  useSpell() {
-    console.log(JSON.stringify(this.player.spells));
+  testEnemyCombat() {
+    if (this.enemy.health <= 0) {
+      return this.enemyDead();
+    } 
+    let enemySpell:Spell = this.getEnemySpell();
+    this.combatArray.push(`ENEMY CAST ${enemySpell.name}`);
+    this.enemy.mana = this.enemy.mana - enemySpell.mana;
+    this.player.health = this.player.health - enemySpell.damage;
+    this.combatArray.push(`you lost ${enemySpell.damage}`);
   }
+
+  enemyDead(){
+    this.enemy = this.enemyService.getRandomEnemy(this.room);
+    this.cleared = true;
+  }
+
+  getEnemySpell() {
+    return this.spellService.getRandomSpell(this.enemy);
+  }
+
+  displayCombatText() {
+    for (let i : Number = 0; i < this.combatArray.length; i++){
+
+    }
+    setInterval(this.combatArray, 5000);
+  }
+
+  }
+}
+
 
 
 
@@ -56,4 +115,3 @@ export class RoomComponent{
 
   
 
-}

@@ -15,6 +15,7 @@ export class Player {
   currentRing: number;
   currentZone: number;
   currentRoom: number;
+  clearedRooms: number[];
   
 
   //constructor(){

@@ -18,34 +18,38 @@ import "rxjs/add/operator/map";
 export class SpellService {
   static spells : Spell[];
 
-  constructor() {
+  constructor(private http: Http, private saveManager: SaveManager) {
     if (!SpellService.spells) {
         SpellService.spells = require("../../Assets/spells.json").spells;
     }
     
   }
 
-//   getSpellsByName(name: String) : Spell {
-//     for(let i: number = 0; i < SpellService.spells.length; i++) {
-//       let spell: Spell = SpellService.spells[i];
-//       if (spell.name === name) {
-//       return SpellService.spells["Jacob"];
-//     }
-//   }
-//   return null;
-// }
+  create(spell: Spell) : Boolean {
+    let spells: any = [];
+    return this.saveManager.saveSpells(spells);
+  }
 
+  getPlayerSpells() : Spell {
+    return this.saveManager.loadSpells();
+  }
 
-  // getSpellById(id: Number) : Spell {
-  //   for(let i: number = 0; i < SpellService.spells.length; i++) {
-  //       let spell: Spell = SpellService.spells[i];
-  //       if (spell.id === id) {
-  //           return spell;
-  //       }
-  //   }
-  //   return null;
-  // }
+    //need help accessing the appropriate spellset based on enemies "spells"
+  getRandomSpell(enemy: Enemy) : Spell {
+    let rand = Math.floor((Math.random() * SpellService.spells[enemy.spells].length)) + 1;
+    return this.getSpellById(rand, enemy);
+    
+  }
 
+  getSpellById(id: Number, enemy: Enemy) : Spell{
+    for (let i: number = 0; i < SpellService.spells[enemy.spells].length; i++){
+      let spell: Spell = SpellService.spells[enemy.spells][i];
+      if (spell.id === id) {
+        return spell;
+      }
+    }
+    return null;
+  }
 
   
 }

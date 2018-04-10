@@ -9,7 +9,7 @@ export class Enemy {
   name: string;
   health: number;
   mana: number;
-  spells: Spell[];
+  spells: string;
   inventory: Inventory;
   currentRing: number;
   currentZone: number;
