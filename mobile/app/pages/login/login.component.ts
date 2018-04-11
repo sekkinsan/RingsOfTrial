@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit{
   }
   login() {
     this.playerService.getPlayer();
-    this.router.navigate(["/map"]);
+    this.router.navigate(["/spell"]);
   }
   signUp() {
     alert(this.playerService.create(this.player));

@@ -11,6 +11,8 @@ import { Config } from "../config";
 import "rxjs/add/operator/catch";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
+import { Player } from "../../models/Player";
+import { PlayerService } from "../player/player.service";
 
 
 
@@ -18,7 +20,7 @@ import "rxjs/add/operator/map";
 export class SpellService {
   static spells : Spell[];
 
-  constructor(private http: Http, private saveManager: SaveManager) {
+  constructor(private http: Http, private saveManager: SaveManager, private playerService: PlayerService) {
     if (!SpellService.spells) {
         SpellService.spells = require("../../Assets/spells.json").spells;
     }
@@ -30,7 +32,7 @@ export class SpellService {
     return this.saveManager.saveSpells(spells);
   }
 
-  getPlayerSpells() : Spell {
+  getPlayerSpells(player: Player) : Spell {
     return this.saveManager.loadSpells();
   }
 

@@ -1,0 +1,10 @@
+<Page>
+    <ActionBar title="Rings of Trial" class="action-bar"></ActionBar>
+    
+    <StackLayout #container class="background-image">
+    <TextField hint="Create your 1st spell" [(ngModel)]="spell1"></TextField>
+    <TextField hint="Create your 2nd spell" [(ngModel)]="spell2"></TextField>
+    
+    <Button text= "Confirm your spells!" class="submit-button" (tap)="submit()"></Button>
+    </StackLayout>
+    </Page>
