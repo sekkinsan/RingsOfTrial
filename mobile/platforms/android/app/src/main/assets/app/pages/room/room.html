@@ -3,7 +3,7 @@
         <Button text="{{ enemy.name }} HP {{ enemy.health }} MANA {{ enemy.mana }}" height="25%" backgroundColor="white" ></Button>
         <Label text= "{{ combatArray.join('\n') }}" height="25%" backgroundColor="white"></Label>
         <Button text="{{player.username}} HP: {{ player.health }} MANA: {{ player.mana }}" height ="10%" backgroundColor="white"></Button>
-        <Button text="BASIC ATTACK" height="13.33%" backgroundColor="white" (tap) = "testPlayerCombat()"></Button>
+        <Button text="{{this.attack.name}}" height="13.33%" backgroundColor="white" (tap) = "testPlayerCombat()"></Button>
         <Button text="SPELL2" height="13.33%" backgroundColor="white" (tap) = "enemySpell()"></Button>
         <Button text="SPELL3" height="13.33%" backgroundColor="white" (tap) = "test()"></Button>
     </StackLayout>

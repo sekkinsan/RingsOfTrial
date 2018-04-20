@@ -20,8 +20,6 @@ export class LoginComponent implements OnInit{
 
   constructor(private router: Router, private playerService: PlayerService, private page: Page) {
     this.player = new Player();
-    this.player.username = "username";
-    this.player.password = "password";
   }
   
   submit() {
@@ -31,10 +29,12 @@ export class LoginComponent implements OnInit{
       this.signUp();
     }
   }
+
   login() {
     this.playerService.getPlayer();
     this.router.navigate(["/spell"]);
   }
+
   signUp() {
     alert(this.playerService.create(this.player));
   }

@@ -20,6 +20,7 @@ export class SpellComponent {
 
   player: Player;
   spell: Spell;
+  spellsMade: Boolean;
 
   constructor(private router: Router, private playerService: PlayerService, private spellService: SpellService, private page: Page) {
     this.player = this.playerService.getPlayer();
@@ -29,11 +30,36 @@ export class SpellComponent {
   }
 
   submit() {
+    if (this.spellsMade) {
+      this.login();
+    } else {
+      this.signUp();
+    }
+  }
+
+  submit2() {
     // need way to push access player spells and have damage/mana cost set up and push directly into it..
       console.log(JSON.stringify(this.player.spells));
 
     //   this.player.spells.push(spell1);
     //   this,player.spells.push(spell2);
+  }
+
+  login() {
+    console.log(JSON.stringify(this.player.spells));
+    this.playerService.getPlayer();
+    this.spellService.getPlayerSpells(this.player);
+    this.router.navigate(["/map"]);
+  }
+
+  signUp() {
+    this.spellService.create(this.player.spells[1]);
+    this.spellService.create(this.player.spells[2]);
+    console.log(JSON.stringify(this.player.spells));
+  }
+
+  toggleDisplay() {
+    this.spellsMade = !this.spellsMade;
   }
 
   

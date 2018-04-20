@@ -28,12 +28,13 @@ export class SpellService {
   }
 
   create(spell: Spell) : Boolean {
-    let spells: any = [];
-    return this.saveManager.saveSpells(spells);
+    let playerSpells: any = [];
+    return this.saveManager.saveSpells(playerSpells);
   }
 
-  getPlayerSpells(player: Player) : Spell {
+  getPlayerSpells(player: Player) : Spell[] {
     return this.saveManager.loadSpells();
+
   }
 
     //need help accessing the appropriate spellset based on enemies "spells"
@@ -53,5 +54,11 @@ export class SpellService {
     return null;
   }
 
-  
+  getRandomAttack() {
+    let attacks = ["punch", "kick", "slap", "poke", "pinch", "knee"]
+    let rand = Math.floor((Math.random() * attacks.length)) + 1;
+    return attacks[rand];
+  }
+
+
 }

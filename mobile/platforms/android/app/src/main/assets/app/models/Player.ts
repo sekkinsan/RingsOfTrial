@@ -5,6 +5,7 @@ import { Ring } from "./ring";
 import { Room } from "./room";
 
 export class Player {
+  spellService: any;
   id: number;
   username: string;
   password: string;

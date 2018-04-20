@@ -48,7 +48,7 @@ export class SaveManager {
         return true;
     }
 
-    loadSpells(): Spell {
+    loadSpells(): Spell[] {
         let spells = [];
         let str = getString("spells");
         return JSON.parse(str);
