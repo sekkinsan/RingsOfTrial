@@ -24,7 +24,7 @@ export class MapComponent {
 
   constructor(private router: Router, private playerService: PlayerService, private spellService: SpellService, private page: Page) {
     this.player = this.playerService.getPlayer();
-    this.player.spells = this.spellService.getPlayerSpells(this.player);
+    this.player.spells = this.spellService.getPlayerSpells();
     
 
   }
@@ -46,10 +46,14 @@ export class MapComponent {
   }
 
   test() {
-    console.log(this.player.spells)
-    console.log(JSON.stringify(this.player.username));
+    console.log(JSON.stringify(this.player.spells));
+    console.log(JSON.stringify(this.player.spells[0]));
     console.log(JSON.stringify(this.player.spells[1]));
+    console.log(JSON.stringify(this.player.spells[2]));
+    console.log(JSON.stringify(this.player));
+    //test to see player actually has a spellbook?
   }
+
 
 }
 

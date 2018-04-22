@@ -28,11 +28,10 @@ export class SpellService {
   }
 
   create(spell: Spell) : Boolean {
-    let playerSpells: any = [];
-    return this.saveManager.saveSpells(playerSpells);
+    return this.saveManager.saveSpells(spell);
   }
 
-  getPlayerSpells(player: Player) : Spell[] {
+  getPlayerSpells() : Spell[] {
     return this.saveManager.loadSpells();
 
   }

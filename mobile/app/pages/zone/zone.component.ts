@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 import { Page } from "ui/page";
 import { View } from "ui/core/view";
 import * as absoluteLayoutModule from "tns-core-modules/ui/layouts/absolute-layout";
+import { SpellService } from "../../shared/spell/spell.service";
 
 
 @Component({

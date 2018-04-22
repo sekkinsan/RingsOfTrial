@@ -42,14 +42,13 @@ export class SaveManager {
     }
 
     saveSpells(spell: Spell): Boolean {
-        let spells = [];
-        let str = JSON.stringify(spells);
-        setString("spells", str);
+        let str = JSON.stringify(spell);
+        setString("spell", str);
+        console.log(str);
         return true;
     }
 
     loadSpells(): Spell[] {
-        let spells = [];
         let str = getString("spells");
         return JSON.parse(str);
     }

@@ -48,13 +48,13 @@ export class SpellComponent {
   login() {
     console.log(JSON.stringify(this.player.spells));
     this.playerService.getPlayer();
-    this.spellService.getPlayerSpells(this.player);
+    this.spellService.getPlayerSpells();
     this.router.navigate(["/map"]);
   }
 
   signUp() {
+    this.spellService.create(this.player.spells[0]);
     this.spellService.create(this.player.spells[1]);
-    this.spellService.create(this.player.spells[2]);
     console.log(JSON.stringify(this.player.spells));
   }
 
