@@ -27,7 +27,7 @@ export class SpellService {
     
   }
 
-  create(spell: Spell) : Boolean {
+  create(spell: Spell[]) : Boolean {
     return this.saveManager.saveSpells(spell);
   }
 
@@ -40,6 +40,10 @@ export class SpellService {
   getRandomSpell(enemy: Enemy) : Spell {
     let rand = Math.floor((Math.random() * SpellService.spells[enemy.spells].length)) + 1;
     return this.getSpellById(rand, enemy);
+    
+  }
+
+  getRandomDamage() {
     
   }
 

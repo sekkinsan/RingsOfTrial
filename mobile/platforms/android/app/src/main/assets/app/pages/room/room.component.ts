@@ -3,6 +3,7 @@ import { PlayerService } from "../../shared/player/player.service";
 import { EnemyService } from "../../shared/enemy/enemy.service";
 import { RoomService } from "../../shared/room/room.service";
 import { SpellService } from "../../shared/spell/spell.service";
+import { CombatService } from "../../shared/combat/combat.service";
 import { Enemy } from "../../models/Enemy";
 import { Room } from "../../models/Room";
 import { Player } from "../../models/Player";
@@ -10,7 +11,6 @@ import { Spell } from "../../models/spell";
 import { ActivatedRoute, ActivatedRouteSnapshot, ParamMap, Router } from "@angular/router";
 import { Page } from "ui/page";
 import { View } from "ui/core/view";
-import * as absoluteLayoutModule from "tns-core-modules/ui/layouts/absolute-layout";
 
 
 
@@ -31,8 +31,6 @@ export class RoomComponent{
   spell: Spell;
   cleared = false;
   combatArray = [];
-  combatInterval: number;
-  combatText = "";
 
   constructor(private route: ActivatedRoute, private router: Router, private playerService: PlayerService, private enemyService: EnemyService, 
   private roomService: RoomService, private spellService: SpellService, private page: Page) {
@@ -43,9 +41,7 @@ export class RoomComponent{
     this.room = this.roomService.getRoomById(Number.parseInt(this.route.snapshot.paramMap.get('id')));
     this.enemy = this.enemyService.getRandomEnemy(this.room);
     this.attack = this.spellService.getRandomAttack();
-    // this.spell = this.spellService.getSpellById(1);
     console.log(JSON.stringify(this.enemy));
-    // console.log(JSON.stringify(this.player.spells[0].name));
   }
 
   // useSpell() {
@@ -61,11 +57,12 @@ export class RoomComponent{
   //   }
 
   testPlayerCombat() {
+    let attack:string = this.attack;
     if (this.player.mana >= 3) {
-      this.combatArray.push("You're about to use SPELL NAME")
-      this.enemy.health = this.enemy.health - 3;
+      this.combatArray.push(`Youre about to use ${attack}`)
+      this.enemy.health = this.enemy.health - 2;
       this.player.mana = this.player.mana - 0;
-      this.combatArray.push("You dealt 3 damage")
+      this.combatArray.push(`You dealt 2 damage`)
       this.combatArray.push("You used 0 mana")
       this.testEnemyCombat();
       this.failRoom();
@@ -73,9 +70,6 @@ export class RoomComponent{
       this.combatArray.push("You don't have enough mana!")
     }
     console.log(JSON.stringify(this.combatArray));
-    // this.combatInterval = setInterval(this.combatArray), 5000);
-    // this.combatArray = [];
-    // console.log(JSON.stringify(this.combatArray));
   }
 
   testEnemyCombat() {
@@ -94,28 +88,24 @@ export class RoomComponent{
     return this.spellService.getRandomSpell(this.enemy);
   }
 
-  displayCombatText() {
-    for (let i : Number = 0; i < this.combatArray.length; i++){
-
-    }
-    setInterval(this.combatArray, 5000);
-  }
-
   clearRoom(){
     if (this.enemy.health <= 0) {
       alert("YOU CLEARED THIS ROOM!");
+      console.log(JSON.stringify(this.room.id));
+      this.cleared = true;
+      this.roomService.setRoomCleared(this.player, this.room.id);
+      this.router.navigate(["/zone"]);
+      console.log(JSON.stringify(this.player.clearedRooms));
     } 
-    this.cleared = true;
   }
 
   failRoom(){
     if (this.player.health <= 0) {
-      alert("YOU FAILED THIS ROOM!")
+      this.playerService.deadPlayer();
     }
     this.cleared = false;
   }
 
-  }
 }
 
 

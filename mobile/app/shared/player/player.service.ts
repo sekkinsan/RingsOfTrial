@@ -8,6 +8,7 @@ import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
 
 import { Player } from "../../models/Player"
+import { Room } from "../../models/Room";
 import { Config } from "../config"
 
 
@@ -21,7 +22,8 @@ export class PlayerService {
       Config.apiUrl + "user/" + Config.appKey,
       JSON.stringify({
         username: player.username,
-        password: player.password
+        password: player.password,
+        spells: player.spells
       }),
       { headers: this.getCommonHeaders() }
     )
@@ -58,7 +60,8 @@ export class PlayerService {
       Config.apiUrl + "user/" + Config.appKey + "/login",
       JSON.stringify({
         username: player.username,
-        password: player.password
+        password: player.password,
+        spells: player.spells
       }),
       { headers: this.getCommonHeaders() }
     )
@@ -67,5 +70,9 @@ export class PlayerService {
       Config.token = data._kmd.authtoken
     })
     .catch(this.handleErrors);
+  }
+
+  deadPlayer() {
+    alert("You've failed to complete your trial!")
   }
 }

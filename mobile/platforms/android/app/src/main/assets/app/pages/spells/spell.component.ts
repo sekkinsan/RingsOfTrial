@@ -4,7 +4,6 @@ import { Player } from "../../models/Player";
 import { Router } from "@angular/router";
 import { Page } from "ui/page";
 import { View } from "ui/core/view";
-import * as absoluteLayoutModule from "tns-core-modules/ui/layouts/absolute-layout";
 import { SpellService } from "../../shared/spell/spell.service";
 import { Spell } from "../../models/spell";
 
@@ -19,21 +18,20 @@ import { Spell } from "../../models/spell";
 export class SpellComponent {
 
   player: Player;
-  spell: Spell;
+  spells: Spell[];
   spellsMade: Boolean;
 
   constructor(private router: Router, private playerService: PlayerService, private spellService: SpellService, private page: Page) {
     this.player = this.playerService.getPlayer();
     this.player.spells = [];
-    
 
   }
 
   submit() {
     if (this.spellsMade) {
-      this.login();
+      this.continue();
     } else {
-      this.signUp();
+      this.createSpell();
     }
   }
 
@@ -45,17 +43,16 @@ export class SpellComponent {
     //   this,player.spells.push(spell2);
   }
 
-  login() {
+  continue() {
     console.log(JSON.stringify(this.player.spells));
-    this.playerService.getPlayer();
     this.spellService.getPlayerSpells();
     this.router.navigate(["/map"]);
   }
 
-  signUp() {
-    this.spellService.create(this.player.spells[0]);
-    this.spellService.create(this.player.spells[1]);
+  createSpell() {
+    alert(this.spellService.create(this.player.spells));
     console.log(JSON.stringify(this.player.spells));
+    console.log(JSON.stringify(this.player.spells[0]));
   }
 
   toggleDisplay() {

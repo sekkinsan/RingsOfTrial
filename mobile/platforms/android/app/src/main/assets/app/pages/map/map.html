@@ -1,8 +1,9 @@
-<ActionBar title="Rings of Trial" class="action-bar"></ActionBar>
 <Page>
-    <AbsoluteLayout class="ring" width="400" height="500">
-        <Button text="This is zone 1" left="150" top="120" width="90" height="90" backgroundColor = "red" class="submit-button" (tap)="submit()"></Button>
-        <Button text="This is zone 2" left="120" top="0" width="90" height="90" backgroundColor = "green" class="submit-button" (tap)="submit()"></Button>
-        <Button text="TEST USER SPELLS" left="0" top="0" width="90" height="90" backgroundColor = "blue" class="submit-button" (tap)="test()"></Button>
-    </AbsoluteLayout>
-</Page>
+    <ActionBar title="Rings of Trial" class="action-bar"></ActionBar>
+  
+      <StackLayout class="ring">
+          <Button text="Zone 1" class="submit-button" backgroundColor = "red" (tap)="submit()"></Button>
+          <Button text="Zone 2" class="submit-button" backgroundColor = "green" (tap)="submit()"></Button>
+          <Button text="See your spells" class="submit-button" (tap)="test()"></Button>
+      </StackLayout>
+  </Page>

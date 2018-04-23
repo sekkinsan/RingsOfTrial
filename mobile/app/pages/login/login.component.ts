@@ -32,6 +32,8 @@ export class LoginComponent implements OnInit{
 
   login() {
     this.playerService.getPlayer();
+    console.log(JSON.stringify(this.player));
+    console.log(JSON.stringify(this.player.spells));
     this.router.navigate(["/spell"]);
   }
 

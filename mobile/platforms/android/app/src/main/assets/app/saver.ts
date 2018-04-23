@@ -41,7 +41,7 @@ export class SaveManager {
         return items;
     }
 
-    saveSpells(spell: Spell): Boolean {
+    saveSpells(spell: Spell[]): Boolean {
         let str = JSON.stringify(spell);
         setString("spell", str);
         console.log(str);
@@ -49,7 +49,15 @@ export class SaveManager {
     }
 
     loadSpells(): Spell[] {
-        let str = getString("spells");
+        let str = getString("spell");
         return JSON.parse(str);
+        // let spells = [];
+
+        // for (let i = 0; i < spells.length; i++){
+        //     spells.push(spells[i].name, i);
+        // }
+
+        // console.log(JSON.stringify(spells));
+        // return spells
     }
 }

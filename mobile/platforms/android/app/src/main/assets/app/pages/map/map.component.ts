@@ -5,7 +5,6 @@ import { Player } from "../../models/Player";
 import { Router } from "@angular/router";
 import { Page } from "ui/page";
 import { View } from "ui/core/view";
-import * as absoluteLayoutModule from "tns-core-modules/ui/layouts/absolute-layout";
 import { Spell } from "../../models/spell";
 
 
@@ -49,7 +48,6 @@ export class MapComponent {
     console.log(JSON.stringify(this.player.spells));
     console.log(JSON.stringify(this.player.spells[0]));
     console.log(JSON.stringify(this.player.spells[1]));
-    console.log(JSON.stringify(this.player.spells[2]));
     console.log(JSON.stringify(this.player));
     //test to see player actually has a spellbook?
   }
