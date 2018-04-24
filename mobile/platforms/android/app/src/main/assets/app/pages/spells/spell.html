@@ -2,8 +2,8 @@
 <ActionBar title="Rings of Trial" class="action-bar"></ActionBar>
     
 <StackLayout #container class="background-image">
-  <TextField hint="Create your 1st spell" [(ngModel)]="this.player.spells[0]"></TextField>
-  <TextField hint="Create your 2nd spell" [(ngModel)]="this.player.spells[1]"></TextField>
+  <TextField hint="Create your 1st spell" [(ngModel)]="this.spellNames[0]"></TextField>
+  <TextField hint="Create your 2nd spell" [(ngModel)]="this.spellNames[1]"></TextField>
     
   <Button [text]="spellsMade ? 'Continue your journey' : 'Confirm your spells!'" class="submit-button" (tap)="submit()"></Button>
   <Button [text]="spellsMade ? 'Confirm your spells!' : 'Back to your journey'" (tap)="toggleDisplay()"></Button>

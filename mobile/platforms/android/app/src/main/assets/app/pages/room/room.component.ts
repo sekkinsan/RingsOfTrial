@@ -3,7 +3,7 @@ import { PlayerService } from "../../shared/player/player.service";
 import { EnemyService } from "../../shared/enemy/enemy.service";
 import { RoomService } from "../../shared/room/room.service";
 import { SpellService } from "../../shared/spell/spell.service";
-import { CombatService } from "../../shared/combat/combat.service";
+import { CombatService, CombatStatus } from "../../shared/combat/combat.service";
 import { Enemy } from "../../models/Enemy";
 import { Room } from "../../models/Room";
 import { Player } from "../../models/Player";
@@ -18,7 +18,7 @@ import { View } from "ui/core/view";
   selector: "room",
   moduleId: module.id,
   templateUrl: "./room.html",
-  providers: [PlayerService, EnemyService, RoomService, SpellService],
+  providers: [PlayerService, EnemyService, RoomService, SpellService, CombatService],
   styleUrls: ["./room-common.css"]
 })
 
@@ -33,7 +33,7 @@ export class RoomComponent{
   combatArray = [];
 
   constructor(private route: ActivatedRoute, private router: Router, private playerService: PlayerService, private enemyService: EnemyService, 
-  private roomService: RoomService, private spellService: SpellService, private page: Page) {
+  private roomService: RoomService, private spellService: SpellService, private combatService: CombatService, private page: Page) {
     this.player = this.playerService.getPlayer();
     this.player.spells = this.spellService.getPlayerSpells();
     this.player.health = 10;
@@ -55,6 +55,18 @@ export class RoomComponent{
   //   } else {
   //     alert( "YOU DONT HAVE ENOUGH MANA!")
   //   }
+
+  processCombat(spell: Spell) {
+    let result: CombatStatus = this.combatService.combatTurn(this.player, this.enemy, spell, this.combatArray);
+    switch(result){
+      case CombatStatus.PlayerDead: 
+        this.playerService.deadPlayer();
+        break;
+      case CombatStatus.RoomCleared:
+        this.clearRoom();
+        break;
+    }
+  }
 
   testPlayerCombat() {
     let attack:string = this.attack;

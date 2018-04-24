@@ -20,11 +20,12 @@ export class SpellComponent {
   player: Player;
   spells: Spell[];
   spellsMade: Boolean;
+  spellNames: string[];
 
   constructor(private router: Router, private playerService: PlayerService, private spellService: SpellService, private page: Page) {
     this.player = this.playerService.getPlayer();
     this.player.spells = [];
-
+    this.spellNames = [];
   }
 
   submit() {
@@ -50,6 +51,14 @@ export class SpellComponent {
   }
 
   createSpell() {
+    for(let i = 0; i < this.spellNames.length; i++){
+      let newSpell = new Spell();
+      newSpell.damage = 4;
+      newSpell.mana = 1;
+      newSpell.name = this.spellNames[i];
+      newSpell.id = i;
+      this.player.spells.push(newSpell);
+    }
     alert(this.spellService.create(this.player.spells));
     console.log(JSON.stringify(this.player.spells));
     console.log(JSON.stringify(this.player.spells[0]));

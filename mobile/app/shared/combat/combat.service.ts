@@ -13,108 +13,63 @@ import "rxjs/add/operator/catch";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
 import { RoomComponent } from "../../pages/room/room.component";
+import { SpellService } from "../spell/spell.service";
 
 
+export enum CombatStatus{
+    RoomCleared = 0,
+    PlayerDead = 1,
+    Unresolved = 2
+}
 
 @Injectable()
 export class CombatService {
 
 
-  constructor(private http: Http, private roomComponent: RoomComponent, private saveManager: SaveManager;) {
-    let combatArray = this.roomComponent.combatArray;
-    let player = this.roomComponent.player;
-    let enemy = this.roomComponent.enemy;
+  constructor(private http: Http, private saveManager: SaveManager, private spellService: SpellService) {
 
-    
   }
+
+  //combat turn
+  combatTurn(player: Player, enemy: Enemy, spell: Spell, combatArray: string[]): CombatStatus{
+    this.processPlayerAttack(player, enemy, spell, combatArray);
+    if (this.isRoomCleared(enemy)) {
+      return CombatStatus.RoomCleared;
+    } 
+
+    this.processEnemyAttack(player, enemy, combatArray);
+    if (this.isPlayerDead(player)) {
+      return CombatStatus.PlayerDead;
+    }
+
+    return CombatStatus.Unresolved;
+  }
+
   //for attack since attack isn't a spell..
-  damageDealt(){
-    if (this.roomComponent.player.mana >= 0) {
-      this.roomComponent.combatArray.push(`You are about to use ${this.roomComponent.attack}`)
-      this.roomComponent.enemy.health = this.roomComponent.enemy.health - 2;
-      this.roomComponent.player.mana = this.roomComponent.player.mana - 0;
-      this.roomComponent.combatArray.push(`You dealt 2 damage`)
-      this.roomComponent.combatArray.push('You used 0 mana');
-      this.damageReceived();
-      this.failRoom();
-    } else {
-      this.roomComponent.combatArray.push("You don't have enough mana!");
-    }
-    console.log(JSON.stringify(this.roomComponent.combatArray));
-    this.clearCombatArray();
-    console.log(JSON.stringify(this.roomComponent.combatArray));
+  processPlayerAttack(player: Player, enemy: Enemy, spell: Spell, combatArray: string[]){
+    combatArray.push(`You are about to use ${spell.name}`);
+    enemy.health = enemy.health - spell.damage;
+    player.mana = player.mana - spell.mana;
+    combatArray.push(`You dealt ${spell.damage} damage using ${spell.mana} mana`);
+    console.log(JSON.stringify(combatArray));
   }
 
-  //for player spells, can refactor...
-  useSpell1(){
-    if (this.roomComponent.player.mana >= this.roomComponent.player.spells[0].mana) {
-      this.roomComponent.combatArray.push(`You are about to use ${this.roomComponent.player.spells[0].name}`)
-      this.roomComponent.enemy.health = this.roomComponent.enemy.health - this.roomComponent.player.spells[0].damage;
-      this.roomComponent.player.mana = this.roomComponent.player.mana - this.roomComponent.player.spells[0].mana;
-      this.roomComponent.combatArray.push(`You dealt ${this.roomComponent.player.spells[0].damage} damage`)
-      this.roomComponent.combatArray.push(`You used ${this.roomComponent.player.spells[0].mana} mana`);
-      this.damageReceived();
-      this.failRoom();
-    } else {
-      this.roomComponent.combatArray.push("You don't have enough mana!");
-    }
-    console.log(JSON.stringify(this.roomComponent.combatArray));
-    this.clearCombatArray();
-    console.log(JSON.stringify(this.roomComponent.combatArray));
-  }
-
-  useSpell2(){
-    if (this.roomComponent.player.mana >= this.roomComponent.player.spells[1].mana) {
-      this.roomComponent.combatArray.push(`You are about to use ${this.roomComponent.player.spells[1].name}`)
-      this.roomComponent.enemy.health = this.roomComponent.enemy.health - this.roomComponent.player.spells[1].damage;
-      this.roomComponent.player.mana = this.roomComponent.player.mana - this.roomComponent.player.spells[1].mana;
-      this.roomComponent.combatArray.push(`You dealt ${this.roomComponent.player.spells[1].damage} damage`)
-      this.roomComponent.combatArray.push(`You used ${this.roomComponent.player.spells[1].mana} mana`);
-      this.damageReceived();
-      this.failRoom();
-    } else {
-      this.roomComponent.combatArray.push("You don't have enough mana!");
-    }
-    console.log(JSON.stringify(this.roomComponent.combatArray));
-    this.clearCombatArray();
-    console.log(JSON.stringify(this.roomComponent.combatArray));
+  processEnemyAttack(player: Player, enemy: Enemy, combatArray: string[]){
+    let enemySpell:Spell = this.spellService.getRandomSpell(enemy);
+    combatArray.push(`ENEMY CAST ${enemySpell.name}`);
+    enemy.mana = enemy.mana - enemySpell.mana;
+    player.health = player.health - enemySpell.damage;
+    combatArray.push(`You lost ${enemySpell.damage} hp`);
+    console.log(JSON.stringify(combatArray));
   }
 
 
-
-  damageReceived(){
-    if (this.roomComponent.enemy.health <= 0) {
-      return this.clearRoom();
-    }
-    let enemySpell:Spell = this.roomComponent.getEnemySpell();
-    this.roomComponent.combatArray.push(`ENEMY CAST ${enemySpell.name}`);
-    this.roomComponent.enemy.mana = this.roomComponent.enemy.mana - enemySpell.mana;
-    this.roomComponent.player.health = this.roomComponent.player.health - enemySpell.damage;
-    this.roomComponent.combatArray.push(`You lost ${enemySpell.damage} hp`);
-    console.log(JSON.stringify(this.roomComponent.combatArray));
+  isRoomCleared(enemy: Enemy): Boolean{
+    return enemy.health <= 0;
   }
 
-
-  clearRoom(){
-      if (this.roomComponent.enemy.health <= 0) {
-        alert("YOU CLEARED THIS ROOM!");
-      } 
-      this.roomComponent.cleared = true;
-  }
-
-  failRoom(){
-    if (this.roomComponent.player.health <= 0) {
-      alert("YOU FAILED THIS ROOM!")
-    }
-    this.roomComponent.cleared = false;
-  }
-
-  displayCombatArray(){
-
-  }
-
-  clearCombatArray(){
-    this.roomComponent.combatArray = [];
+  isPlayerDead(player: Player): Boolean{
+    return player.health <= 0;
   }
   
 }
