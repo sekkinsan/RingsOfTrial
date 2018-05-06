@@ -21,13 +21,13 @@ import { RingService } from "../../shared/ring/ring.service";
 export class ZoneComponent{
 
   player: Player;
-  ring: Ring;
+  zone: Ring;
   isCleared = true;
   clearedRooms = [];
   
   constructor(private route: ActivatedRoute, private router: Router, private playerService: PlayerService, private ringService: RingService, private page: Page) {
     this.player = this.playerService.getPlayer();
-    this.ring = this.ringService.getRingById(Number.parseInt(this.route.snapshot.paramMap.get('id')));
+    this.zone = this.ringService.getRingById(Number.parseInt(this.route.snapshot.paramMap.get('id')));
 
   }
 

@@ -2,17 +2,19 @@ import { Component, OnInit } from "@angular/core";
 import { PlayerService } from "../../shared/player/player.service";
 import { SpellService } from "../../shared/spell/spell.service";
 import { Player } from "../../models/Player";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute, ActivatedRouteSnapshot, ParamMap } from "@angular/router";
 import { Page } from "ui/page";
 import { View } from "ui/core/view";
 import { Spell } from "../../models/spell";
+import { RingService } from "../../shared/ring/ring.service";
+import { Ring } from "../../models/ring";
 
 
 @Component({
   selector: "map",
   moduleId: module.id,
   templateUrl: "./map.html",
-  providers: [PlayerService, SpellService],
+  providers: [PlayerService, SpellService, RingService],
   styleUrls: ["./map-common.css", "./map.css"]
 })
 export class MapComponent {
@@ -21,24 +23,24 @@ export class MapComponent {
   isCleared = true;
   spells: Spell[];
 
-  constructor(private router: Router, private playerService: PlayerService, private spellService: SpellService, private page: Page) {
+  constructor(private router: Router, private route: ActivatedRoute, private playerService: PlayerService, private spellService: SpellService, private ringService: RingService, private page: Page) {
     this.player = this.playerService.getPlayer();
     this.player.spells = this.spellService.getPlayerSpells();
     
 
   }
 
-  submit() {
+  submit(zoneId: Number) {
     if (this.isCleared) {
-      this.enter();
+      this.enter(zoneId);
     } else {
       this.warn();
     }
   }
 
-  enter() {
+  enter(zoneId: Number) {
     this.playerService.getPlayer();
-    this.router.navigate(["/zone"]);
+    this.router.navigate(["/zone", zoneId]);
   }
 
   warn() {
