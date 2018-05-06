@@ -6,13 +6,15 @@ import { Router } from "@angular/router";
 import { Page } from "ui/page";
 import { View } from "ui/core/view";
 import { Spell } from "../../models/spell";
+import { RingService } from "../../shared/ring/ring.service";
+import { Ring } from "../../models/ring";
 
 
 @Component({
   selector: "map",
   moduleId: module.id,
   templateUrl: "./map.html",
-  providers: [PlayerService, SpellService],
+  providers: [PlayerService, SpellService, RingService],
   styleUrls: ["./map-common.css", "./map.css"]
 })
 export class MapComponent {
@@ -21,27 +23,28 @@ export class MapComponent {
   isCleared = true;
   spells: Spell[];
 
-  constructor(private router: Router, private playerService: PlayerService, private spellService: SpellService, private page: Page) {
+  constructor(private router: Router, private playerService: PlayerService, private spellService: SpellService, private ringService: RingService, private page: Page) {
     this.player = this.playerService.getPlayer();
     this.player.spells = this.spellService.getPlayerSpells();
     
 
   }
 
-  submit() {
+  submit(ringId: Number) {
     if (this.isCleared) {
-      this.enter();
+      this.enter(ringId);
     } else {
       this.warn();
     }
   }
 
-  enter() {
-    this.router.navigate(["/zone"]);
+  enter(ringId: Number) {
+    this.playerService.getPlayer();
+    this.router.navigate(["/zone", ringId]);
   }
 
   warn() {
-    alert("You can't access this yet!");
+    alert("You already cleared this!");
   }
 
   test() {
@@ -50,6 +53,10 @@ export class MapComponent {
     console.log(JSON.stringify(this.player.spells[1]));
     console.log(JSON.stringify(this.player));
     //test to see player actually has a spellbook?
+  }
+
+  clearedRooms() {
+    console.log(JSON.stringify(this.player.clearedRooms));
   }
 
 

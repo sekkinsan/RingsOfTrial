@@ -57,12 +57,6 @@ export class SpellService {
     return null;
   }
 
-  getRandomAttack() {
-    let attacks = ["punch", "kick", "slap", "poke", "pinch", "knee"]
-    let rand = Math.floor((Math.random() * attacks.length)) + 1;
-    return this.generatePlayerAttack(attacks[rand]);
-  }
-
   generatePlayerAttack(name: string): Spell {
     let spell = new Spell();
     

@@ -37,11 +37,12 @@ export class MapComponent {
   }
 
   enter() {
+    this.playerService.getPlayer();
     this.router.navigate(["/zone"]);
   }
 
   warn() {
-    alert("You can't access this yet!");
+    alert("You already cleared this!");
   }
 
   test() {
@@ -50,6 +51,10 @@ export class MapComponent {
     console.log(JSON.stringify(this.player.spells[1]));
     console.log(JSON.stringify(this.player));
     //test to see player actually has a spellbook?
+  }
+
+  clearedRooms() {
+    console.log(JSON.stringify(this.player.clearedRooms));
   }
 
 

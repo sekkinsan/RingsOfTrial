@@ -23,7 +23,10 @@ export class PlayerService {
       JSON.stringify({
         username: player.username,
         password: player.password,
-        spells: player.spells
+        spells: player.spells,
+        health: player.health,
+        mana: player.mana,
+        clearedRooms: player.clearedRooms
       }),
       { headers: this.getCommonHeaders() }
     )
@@ -37,6 +40,12 @@ export class PlayerService {
   clearedRoom(player: Player, roomId: number){
     player.clearedRooms.push(roomId);
     this.saveManager.savePlayer(player);
+  }
+
+  updateStats(player: Player, health: number, mana: number){
+    player.health = player.health + 4;
+    player.mana = player.mana + 2;
+    return this.saveManager.savePlayer(player);
   }
 
   getPlayer() : Player {
@@ -61,7 +70,10 @@ export class PlayerService {
       JSON.stringify({
         username: player.username,
         password: player.password,
-        spells: player.spells
+        spells: player.spells,
+        health: player.health,
+        mana: player.mana,
+        clearedRooms: player.clearedRooms
       }),
       { headers: this.getCommonHeaders() }
     )

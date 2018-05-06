@@ -1,19 +1,24 @@
 {
     "rings": [
       {
-        "number": 1
+        "id": 1,
+        "name": "Ring of the Underworld"
       },
       {
-        "number": 2
+        "id": 2,
+        "name": "Ring of Heaven"
       },
       {
-        "number": 3
+        "id": 3,
+        "name": "Ring of the Sea"
       },
       {
-        "number": 4
+        "id": 4,
+        "name": "Ring of the Garden"
       },
       {
-        "number": 5
+        "id": 5,
+        "name": "Ring of Escape"
       }
     ]
   }

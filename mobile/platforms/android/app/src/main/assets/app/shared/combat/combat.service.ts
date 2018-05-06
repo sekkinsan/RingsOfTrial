@@ -51,7 +51,7 @@ export class CombatService {
     enemy.health = enemy.health - spell.damage;
     player.mana = player.mana - spell.mana;
     combatArray.push(`You dealt ${spell.damage} damage using ${spell.mana} mana`);
-    console.log(JSON.stringify(combatArray));
+    console.log(JSON.stringify(combatArray.join('\n')));
   }
 
   processEnemyAttack(player: Player, enemy: Enemy, combatArray: string[]){

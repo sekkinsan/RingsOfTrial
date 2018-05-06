@@ -51,13 +51,5 @@ export class SaveManager {
     loadSpells(): Spell[] {
         let str = getString("spell");
         return JSON.parse(str);
-        // let spells = [];
-
-        // for (let i = 0; i < spells.length; i++){
-        //     spells.push(spells[i].name, i);
-        // }
-
-        // console.log(JSON.stringify(spells));
-        // return spells
     }
 }

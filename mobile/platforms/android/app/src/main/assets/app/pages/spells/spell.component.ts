@@ -36,14 +36,6 @@ export class SpellComponent {
     }
   }
 
-  submit2() {
-    // need way to push access player spells and have damage/mana cost set up and push directly into it..
-      console.log(JSON.stringify(this.player.spells));
-
-    //   this.player.spells.push(spell1);
-    //   this,player.spells.push(spell2);
-  }
-
   continue() {
     console.log(JSON.stringify(this.player.spells));
     this.spellService.getPlayerSpells();
@@ -51,17 +43,20 @@ export class SpellComponent {
   }
 
   createSpell() {
-    for(let i = 0; i < this.spellNames.length; i++){
+    let attack = this.spellService.generatePlayerAttack(this.spellNames[0]);
+    this.player.spells.push(attack);
+    
+    for(let i = 1; i < this.spellNames.length; i++){
       let newSpell = new Spell();
-      newSpell.damage = 4;
-      newSpell.mana = 1;
+      newSpell.damage = 3;
+      newSpell.mana = 2;
       newSpell.name = this.spellNames[i];
       newSpell.id = i;
       this.player.spells.push(newSpell);
     }
+  
     alert(this.spellService.create(this.player.spells));
     console.log(JSON.stringify(this.player.spells));
-    console.log(JSON.stringify(this.player.spells[0]));
   }
 
   toggleDisplay() {

@@ -1,3 +1,4 @@
 export class Ring {
-    ring: number;
+    id: number;
+    name: string;
 }
