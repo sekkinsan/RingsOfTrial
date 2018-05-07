@@ -28,17 +28,17 @@ export class MapComponent {
 
   }
 
-  submit(zoneId: Number) {
+  submit(ringId: Number) {
     if (this.isCleared) {
-      this.enter(zoneId);
+      this.enter(ringId);
     } else {
       this.warn();
     }
   }
 
-  enter(zoneId: Number) {
+  enter(ringId: Number) {
     this.playerService.getPlayer();
-    this.router.navigate(["/zone", zoneId]);
+    this.router.navigate(["/ring", ringId]);
   }
 
   warn() {

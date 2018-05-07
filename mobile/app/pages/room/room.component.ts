@@ -11,7 +11,7 @@ import { Spell } from "../../models/spell";
 import { ActivatedRoute, ActivatedRouteSnapshot, ParamMap, Router } from "@angular/router";
 import { Page } from "ui/page";
 import { View } from "ui/core/view";
-import { ZoneComponent } from "../zone/zone.component";
+import { RingComponent } from "../ring/ring.component";
 import { Ring } from "../../models/ring";
 import { RingService } from "../../shared/ring/ring.service";
 
@@ -29,7 +29,7 @@ export class RoomComponent{
 
   
   player: Player;
-  zone: Ring;
+  ring: Ring;
   enemy: Enemy;
   room: Room;
   spell: Spell;
@@ -44,7 +44,7 @@ export class RoomComponent{
     this.player.clearedRooms = [];
     this.player.health = 60;
     this.player.mana = 60;
-    this.zone = this.ringService.getRingById(Number.parseInt(this.route.snapshot.paramMap.get('id')));
+    this.ring = this.ringService.getRingById(Number.parseInt(this.route.snapshot.paramMap.get('id')));
     this.room = this.roomService.getRoomById(Number.parseInt(this.route.snapshot.paramMap.get('id')));
     this.enemy = this.enemyService.getRandomEnemy(this.room);
   }
@@ -54,11 +54,11 @@ export class RoomComponent{
     switch(result){
       case CombatStatus.PlayerDead: 
         this.playerService.deadPlayer();
-        this.toZone(this.zone.id);
+        this.toRing(this.ring.id);
         break;
       case CombatStatus.RoomCleared:
         this.clearRoom();
-        this.ringService.setRingCleared(this.player, this.zone.id);
+        this.ringService.setRingCleared(this.player, this.ring.id);
 
         break;
     }
@@ -75,7 +75,7 @@ export class RoomComponent{
       this.cleared = true;
       this.roomService.setRoomCleared(this.player, this.room.id);
       this.playerService.updateStats(this.player, this.player.health, this.player.mana);
-      this.toZone(this.zone.id);
+      this.toRing(this.ring.id);
       console.log(JSON.stringify(this.player.clearedRooms));
     } 
   }
@@ -87,9 +87,9 @@ export class RoomComponent{
     this.cleared = false;
   }
 
-  toZone(zoneId: Number){
+  toRing(ringId: Number){
     this.playerService.getPlayer();
-    this.router.navigate(["/zone", zoneId]);
+    this.router.navigate(["/ring", ringId]);
   }
 
 }

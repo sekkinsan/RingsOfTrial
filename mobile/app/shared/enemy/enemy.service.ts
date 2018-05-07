@@ -5,7 +5,6 @@ import { Observable } from "rxjs/Observable";
 import { SaveManager } from "../../saver";
 import { Enemy } from "../../models/Enemy";
 import { Room } from "../../models/Room";
-import { Zone } from "../../models/Zone";
 import { Config } from "../config";
 import "rxjs/add/operator/catch";
 import "rxjs/add/operator/do";

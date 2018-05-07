@@ -11,17 +11,17 @@ import { RingService } from "../../shared/ring/ring.service";
 
 
 @Component({
-  selector: "zone",
+  selector: "ring",
   moduleId: module.id,
-  templateUrl: "./zone.html",
+  templateUrl: "./ring.html",
   providers: [PlayerService, RingService],
-  styleUrls: ["./zone-common.css"]
+  styleUrls: ["./ring-common.css"]
 })
 
-export class ZoneComponent{
+export class RingComponent{
 
   player: Player;
-  zone: Ring;
+  ring: Ring;
   isCleared = true;
   clearedRooms = [];
   clearedRings = [];
@@ -29,7 +29,7 @@ export class ZoneComponent{
   constructor(private route: ActivatedRoute, private router: Router, private playerService: PlayerService, private ringService: RingService, private page: Page) {
     this.player = this.playerService.getPlayer();
     this.clearedRings = this.player.clearedRings;
-    this.zone = this.ringService.getRingById(Number.parseInt(this.route.snapshot.paramMap.get('id')));
+    this.ring = this.ringService.getRingById(Number.parseInt(this.route.snapshot.paramMap.get('id')));
 
   }
 
