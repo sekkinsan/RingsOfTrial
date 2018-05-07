@@ -1,6 +1,8 @@
 import { Player } from "./models/Player";
 import { Item } from "./models/Item";
 import { Spell } from "./models/spell";
+import { Room } from "./models/Room";
+import { Ring } from "./models/Ring";
 import { Injectable } from "@angular/core";
 
 import {
@@ -50,6 +52,30 @@ export class SaveManager {
 
     loadSpells(): Spell[] {
         let str = getString("spell");
+        return JSON.parse(str);
+    }
+
+    saveClearedRooms(room: Room): Boolean {
+        let str = JSON.stringify(room);
+        setString("room", str);
+        console.log(str);
+        return true;
+    }
+
+    loadClearedRooms(): [] {
+        let str = getString("room");
+        return JSON.parse(str)
+    }
+
+    saveClearedRings(zone: Ring): Boolean {
+        let str = JSON.stringify(zone);
+        setString("zone", str);
+        console.log(str)
+        return true;
+    }
+
+    loadClearedRings(): [] {
+        let str = getString("zone");
         return JSON.parse(str);
     }
 }

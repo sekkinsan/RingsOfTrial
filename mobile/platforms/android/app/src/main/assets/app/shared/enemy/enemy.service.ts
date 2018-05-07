@@ -40,13 +40,5 @@ export class EnemyService {
     return null;
   }
 
-  getBoss(zone: Zone) : Enemy {
-      return this.getEnemyById(zone.boss);
-  }
-
-  getEnemyHealth(enemy) {
-    return "This enemy has " + enemy.health + " HP left.";
-  }
-
 }
 

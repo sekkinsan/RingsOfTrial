@@ -25,7 +25,6 @@ export class MapComponent {
   constructor(private router: Router, private route: ActivatedRoute, private playerService: PlayerService, private spellService: SpellService, private page: Page) {
     this.player = this.playerService.getPlayer();
     this.player.spells = this.spellService.getPlayerSpells();
-    
 
   }
 
@@ -46,16 +45,17 @@ export class MapComponent {
     alert("You already cleared this!");
   }
 
-  test() {
-    console.log(JSON.stringify(this.player.spells));
-    console.log(JSON.stringify(this.player.spells[0]));
-    console.log(JSON.stringify(this.player.spells[1]));
+  stats() {
     console.log(JSON.stringify(this.player));
     //test to see player actually has a spellbook?
   }
 
   clearedRooms() {
     console.log(JSON.stringify(this.player.clearedRooms));
+  }
+
+  clearedRings() {
+    console.log(JSON.stringify(this.player.clearedRings));
   }
 
 

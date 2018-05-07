@@ -24,9 +24,11 @@ export class ZoneComponent{
   zone: Ring;
   isCleared = true;
   clearedRooms = [];
+  clearedRings = [];
   
   constructor(private route: ActivatedRoute, private router: Router, private playerService: PlayerService, private ringService: RingService, private page: Page) {
     this.player = this.playerService.getPlayer();
+    this.clearedRings = this.player.clearedRings;
     this.zone = this.ringService.getRingById(Number.parseInt(this.route.snapshot.paramMap.get('id')));
 
   }

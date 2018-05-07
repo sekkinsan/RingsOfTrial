@@ -9,6 +9,7 @@ import "rxjs/add/operator/map";
 
 import { Player } from "../../models/Player"
 import { Room } from "../../models/Room";
+import { Ring } from "../../models/Ring";
 import { Config } from "../config"
 
 
@@ -26,7 +27,8 @@ export class PlayerService {
         spells: player.spells,
         health: player.health,
         mana: player.mana,
-        clearedRooms: player.clearedRooms
+        clearedRooms: player.clearedRooms,
+        clearedRings: player.clearedRings
       }),
       { headers: this.getCommonHeaders() }
     )
@@ -40,6 +42,19 @@ export class PlayerService {
   clearedRoom(player: Player, roomId: number){
     player.clearedRooms.push(roomId);
     this.saveManager.savePlayer(player);
+  }
+
+  clearedRing(player: Player, zoneId: number){
+    player.clearedRings.push(zoneId);
+    this.saveManager.savePlayer(player);
+  }
+
+  getPlayerRooms(player: Player): any[] {
+
+  }
+
+  getPlayerRings(player: Player): [] {
+    
   }
 
   updateStats(player: Player, health: number, mana: number){
@@ -73,7 +88,8 @@ export class PlayerService {
         spells: player.spells,
         health: player.health,
         mana: player.mana,
-        clearedRooms: player.clearedRooms
+        clearedRooms: player.clearedRooms,
+        clearedRings: player.clearedRings
       }),
       { headers: this.getCommonHeaders() }
     )

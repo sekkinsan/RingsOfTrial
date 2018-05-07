@@ -28,7 +28,10 @@ export class RingService {
   }
 
   setRingCleared(player: Player, id: number){
-    this.playerService.clearedRoom(player, id);
+    if (this.playerService.clearedRoom.length == 3) {
+    this.playerService.clearedRing(player, id);
+    alert("YOU CLEARED THIS RING!");
+    }
   }
 
   getRingById(id: Number) : Ring {

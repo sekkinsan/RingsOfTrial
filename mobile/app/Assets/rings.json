@@ -2,23 +2,28 @@
     "rings": [
       {
         "id": 1,
-        "name": "Ring of the Underworld"
+        "name": "Ring of the Underworld",
+        "mobs": [1, 6, 11]
       },
       {
         "id": 2,
-        "name": "Ring of Heaven"
+        "name": "Ring of Heaven",
+        "mobs": [2, 7, 12]
       },
       {
         "id": 3,
-        "name": "Ring of the Sea"
+        "name": "Ring of the Sea",
+        "mobs": [3, 8, 13]
       },
       {
         "id": 4,
-        "name": "Ring of the Garden"
+        "name": "Ring of the Garden",
+        "mobs": [4, 9, 14]
       },
       {
         "id": 5,
-        "name": "Ring of Escape"
+        "name": "Ring of Escape",
+        "mobs": [5, 10, 15]
       }
     ]
   }

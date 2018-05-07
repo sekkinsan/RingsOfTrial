@@ -8,7 +8,7 @@ import { SpellComponent } from "./pages/spells/spell.component";
 export const routes = [
   { path: "", component: LoginComponent },
   { path: "map", component: MapComponent },
-  { path: "zone", component: ZoneComponent },
+  { path: "zone/:id", component: ZoneComponent },
   { path: "room/:id", component: RoomComponent },
   { path: "inventory", component: InventoryComponent},
   { path: "spell", component: SpellComponent }

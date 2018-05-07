@@ -43,10 +43,6 @@ export class SpellService {
     
   }
 
-  getRandomDamage() {
-    
-  }
-
   getSpellById(id: Number, enemy: Enemy) : Spell{
     for (let i: number = 0; i < SpellService.spells[enemy.spells].length; i++){
       let spell: Spell = SpellService.spells[enemy.spells][i];

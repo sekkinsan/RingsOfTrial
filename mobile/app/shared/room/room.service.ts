@@ -7,6 +7,7 @@ import { PlayerService } from "../player/player.service";
 import { Enemy } from "../../models/Enemy";
 import { Room } from "../../models/Room";
 import { Zone } from "../../models/Zone";
+import { Ring } from "../../models/Ring";
 import { Player } from "../../models/Player";
 import { Config } from "../config";
 import "rxjs/add/operator/catch";
