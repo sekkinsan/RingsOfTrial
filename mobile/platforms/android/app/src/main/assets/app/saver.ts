@@ -62,7 +62,7 @@ export class SaveManager {
         return true;
     }
 
-    loadClearedRooms(): [] {
+    loadClearedRooms(): number[] {
         let str = getString("room");
         return JSON.parse(str)
     }
@@ -74,7 +74,7 @@ export class SaveManager {
         return true;
     }
 
-    loadClearedRings(): [] {
+    loadClearedRings(): number[] {
         let str = getString("zone");
         return JSON.parse(str);
     }

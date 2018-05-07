@@ -49,11 +49,11 @@ export class PlayerService {
     this.saveManager.savePlayer(player);
   }
 
-  getPlayerRooms(player: Player): Room[] {
+  getPlayerRooms(player: Player): number[] {
     return this.saveManager.loadClearedRooms();
   }
 
-  getPlayerRings(player: Player): Ring[] {
+  getPlayerRings(player: Player): number[] {
     return this.saveManager.loadClearedRings();
   }
 
