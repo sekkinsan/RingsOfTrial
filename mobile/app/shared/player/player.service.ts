@@ -49,13 +49,13 @@ export class PlayerService {
     this.saveManager.savePlayer(player);
   }
 
-  getPlayerRooms(player: Player): number[] {
-    return this.saveManager.loadClearedRooms();
-  }
+  // getPlayerRooms(player: Player): number[] {
+  //   return this.saveManager.loadClearedRooms();
+  // }
 
-  getPlayerRings(player: Player): number[] {
-    return this.saveManager.loadClearedRings();
-  }
+  // getPlayerRings(player: Player): number[] {
+  //   return this.saveManager.loadClearedRings();
+  // }
 
   updateStats(player: Player, health: number, mana: number){
     player.health = player.health + 4;

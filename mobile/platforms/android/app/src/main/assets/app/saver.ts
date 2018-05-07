@@ -55,27 +55,27 @@ export class SaveManager {
         return JSON.parse(str);
     }
 
-    saveClearedRooms(room: Room): Boolean {
-        let str = JSON.stringify(room);
-        setString("room", str);
-        console.log(str);
-        return true;
-    }
+    // saveClearedRooms(room: Room): Boolean {
+    //     let str = JSON.stringify(room);
+    //     setString("room", str);
+    //     console.log(str);
+    //     return true;
+    // }
 
-    loadClearedRooms(): number[] {
-        let str = getString("room");
-        return JSON.parse(str)
-    }
+    // loadClearedRooms(): number[] {
+    //     let str = getString("room");
+    //     return JSON.parse(str)
+    // }
 
-    saveClearedRings(zone: Ring): Boolean {
-        let str = JSON.stringify(zone);
-        setString("zone", str);
-        console.log(str)
-        return true;
-    }
+    // saveClearedRings(zone: Ring): Boolean {
+    //     let str = JSON.stringify(zone);
+    //     setString("zone", str);
+    //     console.log(str)
+    //     return true;
+    // }
 
-    loadClearedRings(): number[] {
-        let str = getString("zone");
-        return JSON.parse(str);
-    }
+    // loadClearedRings(): number[] {
+    //     let str = getString("zone");
+    //     return JSON.parse(str);
+    // }
 }
