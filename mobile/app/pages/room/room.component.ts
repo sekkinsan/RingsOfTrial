@@ -41,9 +41,9 @@ export class RoomComponent{
   private roomService: RoomService, private ringService: RingService, private spellService: SpellService, private combatService: CombatService, private page: Page) {
     this.player = this.playerService.getPlayer();
     this.player.spells = this.spellService.getPlayerSpells();
-    this.player.clearedRooms = [];
     this.player.health = 60;
     this.player.mana = 60;
+    this.player.clearedRooms = [];
     this.ring = this.ringService.getRingById(Number.parseInt(this.route.snapshot.paramMap.get('id')));
     this.room = this.roomService.getRoomById(Number.parseInt(this.route.snapshot.paramMap.get('id')));
     this.enemy = this.enemyService.getRandomEnemy(this.room);

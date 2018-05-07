@@ -21,10 +21,13 @@ export class MapComponent {
   player: Player;
   isCleared = true;
   spells: Spell[];
+  ring: Ring;
+  clearedRings = [];
 
   constructor(private router: Router, private route: ActivatedRoute, private playerService: PlayerService, private spellService: SpellService, private page: Page) {
     this.player = this.playerService.getPlayer();
     this.player.spells = this.spellService.getPlayerSpells();
+    this.player.clearedRings = [];
 
   }
 
@@ -50,11 +53,11 @@ export class MapComponent {
     //test to see player actually has a spellbook?
   }
 
-  clearedRooms() {
+  checkClearedRooms() {
     console.log(JSON.stringify(this.player.clearedRooms));
   }
 
-  clearedRings() {
+  checkClearedRings() {
     console.log(JSON.stringify(this.player.clearedRings));
   }
 

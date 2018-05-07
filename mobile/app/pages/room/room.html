@@ -1,4 +1,5 @@
 <Page>
+  <ActionBar title="{{this.ring.name}}" class="action-bar"></ActionBar>
     <StackLayout orientation="vertical" backgroundColor="lightgray">
         <Button text="{{ enemy.name }} HP {{ enemy.health }} MANA {{ enemy.mana }}" height="25%" backgroundColor="white" ></Button>
         <Label text= "{{ combatArray.join('\r\n') }}" class="combatText" height="25%" backgroundColor="white"></Label>

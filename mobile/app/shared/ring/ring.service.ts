@@ -27,10 +27,10 @@ export class RingService {
   }
 
   setRingCleared(player: Player, id: number){
-    if (this.playerService.clearedRoom.length == 3) {
+    if (player.clearedRooms.length == 3) {
     this.playerService.clearedRing(player, id);
     alert("YOU CLEARED THIS RING!");
-    }
+    } 
   }
 
   getRingById(id: Number) : Ring {
