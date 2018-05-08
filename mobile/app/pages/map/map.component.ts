@@ -19,20 +19,19 @@ import { Ring } from "../../models/ring";
 export class MapComponent {
 
   player: Player;
-  isCleared = true;
   spells: Spell[];
   ring: Ring;
-  clearedRings = [];
 
   constructor(private router: Router, private route: ActivatedRoute, private playerService: PlayerService, private spellService: SpellService, private page: Page) {
     this.player = this.playerService.getPlayer();
     this.player.spells = this.spellService.getPlayerSpells();
-    this.player.clearedRings = [];
 
   }
 
+  isCleared = (ringId) => this.player.clearedRings && this.player.clearedRings.indexOf(ringId) >= 0;
+
   submit(ringId: Number) {
-    if (this.isCleared) {
+    if (!this.isCleared(ringId)) {
       this.enter(ringId);
     } else {
       this.warn();
@@ -42,6 +41,7 @@ export class MapComponent {
   enter(ringId: Number) {
     this.playerService.getPlayer();
     this.router.navigate(["/ring", ringId]);
+    console.log(this.ring);
   }
 
   warn() {
@@ -49,16 +49,15 @@ export class MapComponent {
   }
 
   stats() {
-    console.log(JSON.stringify(this.player));
-    //test to see player actually has a spellbook?
+    alert(JSON.stringify(this.player));
   }
 
   checkClearedRooms() {
-    console.log(JSON.stringify(this.player.clearedRooms));
+    alert(JSON.stringify(this.player.clearedRooms));
   }
 
   checkClearedRings() {
-    console.log(JSON.stringify(this.player.clearedRings));
+    alert(JSON.stringify(this.player.clearedRings));
   }
 
 

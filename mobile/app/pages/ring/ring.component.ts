@@ -28,6 +28,7 @@ export class RingComponent{
   constructor(private route: ActivatedRoute, private router: Router, private playerService: PlayerService, private ringService: RingService, private page: Page) {
     this.player = this.playerService.getPlayer();
     this.ring = this.ringService.getRingById(Number.parseInt(this.route.snapshot.paramMap.get('id')));
+    this.player.clearedRings = this.player.clearedRings || [];
 
   }
 
@@ -40,7 +41,6 @@ export class RingComponent{
   }
 
   toMap() {
-    this.ringService.setRingCleared(this.player, this.ring.id);
     this.playerService.getPlayer();
     this.router.navigate(["/map"]);
   }

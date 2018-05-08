@@ -1,8 +1,8 @@
 <Page>
-  <ActionBar title="{{this.ring.name}}" class="action-bar"></ActionBar>
+  <ActionBar title="Defeat the enemy!" class="action-bar"></ActionBar>
     <StackLayout orientation="vertical" backgroundColor="lightgray">
-        <Button text="{{ enemy.name }} HP {{ enemy.health }} MANA {{ enemy.mana }}" height="25%" backgroundColor="white" ></Button>
-        <Label text= "{{ combatArray.join('\r\n') }}" class="combatText" height="25%" backgroundColor="white"></Label>
+        <Button text="{{ enemy.name }} HP {{ enemy.health }}" height="25%" backgroundColor="white" ></Button>
+        <Label text= "{{ combatArray.join('\n') }}" class="combatText" height="25%" backgroundColor="white"></Label>
         <Button text="{{player.username}} HP: {{ player.health }} MANA: {{ player.mana }}" height ="10%" backgroundColor="white"></Button>
         <Button text="{{this.player.spells[0].name}}" height="13.33%" backgroundColor="white" (tap) = "processCombat(this.player.spells[0])"></Button>
         <Button text="{{this.player.spells[1].name}}" height="13.33%" backgroundColor="white" (tap) = "processCombat(this.player.spells[1])"></Button>

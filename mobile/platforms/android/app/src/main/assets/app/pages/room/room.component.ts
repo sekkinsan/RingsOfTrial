@@ -43,7 +43,7 @@ export class RoomComponent{
     this.player.spells = this.spellService.getPlayerSpells();
     this.player.health = 60;
     this.player.mana = 60;
-    this.player.clearedRooms = [];
+    this.player.clearedRooms = this.player.clearedRooms || [];
     this.ring = this.ringService.getRingById(Number.parseInt(this.route.snapshot.paramMap.get('id')));
     this.room = this.roomService.getRoomById(Number.parseInt(this.route.snapshot.paramMap.get('id')));
     this.enemy = this.enemyService.getRandomEnemy(this.room);
@@ -89,6 +89,7 @@ export class RoomComponent{
 
   toRing(ringId: Number){
     this.playerService.getPlayer();
+    console.log(this.player.clearedRooms);
     this.router.navigate(["/ring", ringId]);
   }
 
