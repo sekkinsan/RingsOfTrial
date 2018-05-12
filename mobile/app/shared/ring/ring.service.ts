@@ -46,6 +46,14 @@ export class RingService {
     //clear out clearedRooms array each time you clear a ring
     
     } 
+
+    //old function
+    // if (player.clearedRooms.length == 3) {
+    //   this.playerService.clearedRing(player, id);
+    //   alert("YOU CLEARED THIS RING!");
+    //   } 
+
+    //testing loops?
     //work on loop function to loop through array?
     // let ring1 = [1,2,3];
     // let ring2 = [4,5,6];
