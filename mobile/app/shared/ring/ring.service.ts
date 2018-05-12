@@ -27,13 +27,31 @@ export class RingService {
   }
 
   setRingCleared(player: Player, id: number){
-    if (player.clearedRooms.length == 3) {
+    if ((player.clearedRooms.indexOf(1) > -1) && (player.clearedRooms.indexOf(2)) > -1 && (player.clearedRooms.indexOf(3) > -1)) {
     this.playerService.clearedRing(player, id);
+      if ((player.clearedRooms.indexOf(4) > -1) && (player.clearedRooms.indexOf(5)) > -1 && (player.clearedRooms.indexOf(6) > -1)) {
+        this.playerService.clearedRing(player, id);
+          if ((player.clearedRooms.indexOf(7) > -1) && (player.clearedRooms.indexOf(8)) > -1 && (player.clearedRooms.indexOf(9) > -1)) {
+            this.playerService.clearedRing(player, id);
+              if ((player.clearedRooms.indexOf(10) > -1) && (player.clearedRooms.indexOf(11)) > -1 && (player.clearedRooms.indexOf(12) > -1)) {
+                this.playerService.clearedRing(player, id);
+                  if ((player.clearedRooms.indexOf(13) > -1) && (player.clearedRooms.indexOf(14)) > -1 && (player.clearedRooms.indexOf(15) > -1)) {
+                    this.playerService.clearedRing(player, id);
+                  } else null
+              } else null
+          } else null
+      } else null
+
     alert("YOU CLEARED THIS RING!");
     //clear out clearedRooms array each time you clear a ring
     
     } 
     //work on loop function to loop through array?
+    // let ring1 = [1,2,3];
+    // let ring2 = [4,5,6];
+    // let ring3 = [7,8,9];
+    // let ring4 = [10,11,12];
+    // let ring5 = [13,14,15];
     // for (let i: number = 0; i < player.clearedRooms.length; i++) {
 
     // }
