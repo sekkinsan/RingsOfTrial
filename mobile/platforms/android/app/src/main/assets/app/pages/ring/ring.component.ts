@@ -22,7 +22,6 @@ export class RingComponent{
 
   player: Player;
   ring: Ring;
-  isCleared = true;
   clearedRooms = [];
   
   constructor(private route: ActivatedRoute, private router: Router, private playerService: PlayerService, private ringService: RingService, private page: Page) {
@@ -32,8 +31,10 @@ export class RingComponent{
 
   }
 
+  isCleared = (roomId) => this.player.clearedRooms && this.player.clearedRooms.indexOf(roomId) >= 0;
+
   submit(roomId: Number) {
-    if (this.isCleared) {
+    if (!this.isCleared(roomId)) {
       this.enter(roomId);
     } else {
       this.warn();
@@ -51,7 +52,7 @@ export class RingComponent{
   }
 
   warn() {
-    alert("You can't access this yet!");
+    alert("You've already cleared this!");
   }
 
   check() {

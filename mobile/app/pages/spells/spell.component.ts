@@ -56,6 +56,7 @@ export class SpellComponent {
     }
   
     alert(this.spellService.create(this.player.spells));
+    this.spellsMade = true;
   }
 
   toggleDisplay() {

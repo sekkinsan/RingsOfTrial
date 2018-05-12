@@ -2,9 +2,9 @@
   <ActionBar title="{{this.ring.name}}" class="action-bar"></ActionBar>
 
     <StackLayout class="ring">
-        <Button text="Room 1" (tap)="submit(1)"></Button>
-        <Button text="Room 2" (tap)="submit(2)"></Button>
-        <Button text="Room 3" (tap)="submit(3)"></Button>
+        <Button text="Room 1" (tap)="submit(this.ring.rooms[0])"></Button>
+        <Button text="Room 2" (tap)="submit(this.ring.rooms[1])"></Button>
+        <Button text="Room 3" (tap)="submit(this.ring.rooms[2])"></Button>
         <Button text="See your stats" (tap)="check()"></Button>
         <Button text="Return to map of rings" (tap)="toMap()"></Button>
     </StackLayout>

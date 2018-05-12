@@ -41,7 +41,6 @@ export class MapComponent {
   enter(ringId: Number) {
     this.playerService.getPlayer();
     this.router.navigate(["/ring", ringId]);
-    console.log(this.ring);
   }
 
   warn() {

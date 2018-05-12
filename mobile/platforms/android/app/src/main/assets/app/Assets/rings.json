@@ -10,25 +10,25 @@
         "id": 2,
         "name": "Ring of Heaven",
         "mobs": [2, 7, 12],
-        "rooms": [1, 2, 3]
+        "rooms": [4, 5, 6]
       },
       {
         "id": 3,
         "name": "Ring of the Sea",
         "mobs": [3, 8, 13],
-        "rooms": [1, 2, 3]
+        "rooms": [7, 8, 9]
       },
       {
         "id": 4,
         "name": "Ring of the Garden",
         "mobs": [4, 9, 14],
-        "rooms": [1, 2, 3]
+        "rooms": [10, 11, 12]
       },
       {
         "id": 5,
         "name": "Ring of Escape",
         "mobs": [5, 10, 15],
-        "rooms": [1, 2, 3]
+        "rooms": [13, 14, 15]
       }
     ]
   }

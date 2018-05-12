@@ -38,7 +38,8 @@ export class RoomComponent{
   clearedRooms = [];
 
   constructor(private route: ActivatedRoute, private router: Router, private playerService: PlayerService, private enemyService: EnemyService, 
-  private roomService: RoomService, private ringService: RingService, private spellService: SpellService, private combatService: CombatService, private page: Page) {
+  private roomService: RoomService, private ringService: RingService, private spellService: SpellService, private combatService: CombatService,
+  private page: Page) {
     this.player = this.playerService.getPlayer();
     this.player.spells = this.spellService.getPlayerSpells();
     this.player.health = 60;
@@ -54,16 +55,15 @@ export class RoomComponent{
     switch(result){
       case CombatStatus.PlayerDead: 
         this.playerService.deadPlayer();
-        this.toRing(this.ring.id);
+        this.toRing(this.room.ringId);
         break;
       case CombatStatus.RoomCleared:
         this.clearRoom();
-        this.ringService.setRingCleared(this.player, this.ring.id);
+        this.ringService.setRingCleared(this.player, this.room.ringId);
 
         break;
     }
   }
-
   getEnemySpell() {
     return this.spellService.getRandomSpell(this.enemy);
   }
@@ -75,7 +75,7 @@ export class RoomComponent{
       this.cleared = true;
       this.roomService.setRoomCleared(this.player, this.room.id);
       this.playerService.updateStats(this.player, this.player.health, this.player.mana);
-      this.toRing(this.ring.id);
+      this.toRing(this.room.ringId);
       console.log(JSON.stringify(this.player.clearedRooms));
     } 
   }
@@ -87,10 +87,14 @@ export class RoomComponent{
     this.cleared = false;
   }
 
-  toRing(ringId: Number){
+  toRing(ringId : Number){
     this.playerService.getPlayer();
-    console.log(this.player.clearedRooms);
-    this.router.navigate(["/ring", ringId]);
+    this.router.navigate(["/ring", this.room.ringId]);
+  }
+
+  where(){
+    console.log(JSON.stringify(this.ring));
+    console.log(JSON.stringify(this.room));
   }
 
 }

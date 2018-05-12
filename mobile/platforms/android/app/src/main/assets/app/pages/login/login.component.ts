@@ -16,7 +16,7 @@ import { View } from "ui/core/view";
 export class LoginComponent implements OnInit{
   // Your TypeScript logic goes here
   player: Player;
-  isLoggingIn = true;
+  isLoggingIn: Boolean;
 
   constructor(private router: Router, private playerService: PlayerService, private page: Page) {
     this.player = new Player();
@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit{
 
   signUp() {
     alert(this.playerService.create(this.player));
+    this.isLoggingIn = true;
   }
 
   toggleDisplay() {
