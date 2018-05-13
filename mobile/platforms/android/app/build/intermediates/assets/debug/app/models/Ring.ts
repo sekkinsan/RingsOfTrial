@@ -1,3 +1,8 @@
+import { Enemy } from "../models/Enemy";
+
 export class Ring {
-    ring: number;
+    id: number;
+    name: string;
+    mobs: number[];
+    cleared: boolean;
 }

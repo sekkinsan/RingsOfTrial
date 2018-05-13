@@ -1,90 +1,105 @@
 {
     "enemies": [
       {
+        "id": 1,
         "name": "Grimlord",
         "health": 5,
         "mana": 5,
         "spells": "Easy"
       },
       {
+        "id": 2,
         "name": "Goomba",
         "health": 5,
         "mana": 5,
         "spells": "Easy"
       },
       {
+        "id": 3,
         "name": "Shark",
         "health": 5,
         "mana": 5,
         "spells": "Easy"
       },
       {
+        "id": 4,
         "name": "Tanuki",
         "health": 5,
         "mana": 5,
         "spells": "Easy"
       },
       {
+        "id": 5,
         "name": "Ken",
         "health": 10,
         "mana": 10,
         "spells": "Ken"
       },
       {
+        "id": 6,
         "name": "Demon",
         "health": 20,
         "mana": 10,
         "spells": "Int"
       },
       {
+        "id": 7,
         "name": "Angel",
         "health": 20,
         "mana": 10,
         "spells": "Int"
       },
       {
+        "id": 8,
         "name": "Pirate",
         "health": 20,
         "mana": 10,
         "spells": "Int"
       },
       {
+        "id": 9,
         "name": "Sunflower",
         "health": 20,
         "mana": 10,
         "spells": "Int"
       },
       {
+        "id": 10,
         "name": "Luffy",
         "health": 30,
         "mana": 15,
         "spells": "Luffy"
       },
       {
+        "id": 11,
         "name": "Beezlebub",
         "health": 30,
         "mana": 15,
         "spells": "Boss"
       },
       {
+        "id": 12,
         "name": "Lucifer",
         "health": 30,
         "mana": 15,
         "spells": "Boss"
       },
       {
+        "id": 13,
         "name": "Poseidon",
         "health": 30,
         "mana": 15,
         "spells": "Boss"
       },
       {
+        "id": 14,
         "name": "Gaia",
         "health": 30,
         "mana": 15,
         "spells": "Boss"
       },
       {
+        "id": 15,
         "name": "Jacob",
         "health": 40,
         "mana": 40,

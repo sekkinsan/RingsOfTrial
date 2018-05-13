@@ -2,7 +2,6 @@
 @import url("~/platform.css");
 
 Page {
-  background-image: ~/images/dungeon-door.jpg;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -15,3 +14,9 @@ TextField {
   font-size: 13;
 }
 
+.small-spacing {
+  margin: 5;
+}
+.medium-spacing {
+  margin: 10;
+}

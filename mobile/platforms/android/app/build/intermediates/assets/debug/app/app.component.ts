@@ -1,25 +1,9 @@
 import { Component } from "@angular/core";
-import { Player } from "./models/Player"
-
+import { SaveManager } from "./saver";
 
 @Component({
-  selector: "my-app",
-  templateUrl: "./pages/login/login.html",
-  styleUrls: ["pages/login/login-common.css"]
+  selector: "main",
+  template: "<page-router-outlet></page-router-outlet>",
+  providers: [SaveManager]
 })
-
-export class AppComponent {
-  // Your TypeScript logic goes here
-  player: Player;
-  isLoggingIn = true;
-
-  constructor() {
-    this.player = new Player();
-  }
-  submit() {
-    alert("You’re using: " + this.player.username);
-  }
-  toggleDisplay() {
-    this.isLoggingIn = !this.isLoggingIn;
-  }
-}
+export class AppComponent {}

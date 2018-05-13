@@ -67,6 +67,7 @@ export class SaveManager {
     //     return JSON.parse(str)
     // }
 
+<<<<<<< HEAD
     // saveClearedRings(zone: Ring): Boolean {
     //     let str = JSON.stringify(zone);
     //     setString("zone", str);
@@ -78,4 +79,17 @@ export class SaveManager {
     //     let str = getString("zone");
     //     return JSON.parse(str);
     // }
+=======
+    saveClearedRings(ring: Ring): Boolean {
+        let str = JSON.stringify(ring);
+        setString("ring", str);
+        console.log(str)
+        return true;
+    }
+
+    loadClearedRings(): number[] {
+        let str = getString("ring");
+        return JSON.parse(str);
+    }
+>>>>>>> separateroombyid
 }

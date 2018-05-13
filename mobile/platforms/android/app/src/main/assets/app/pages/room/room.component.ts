@@ -11,7 +11,7 @@ import { Spell } from "../../models/spell";
 import { ActivatedRoute, ActivatedRouteSnapshot, ParamMap, Router } from "@angular/router";
 import { Page } from "ui/page";
 import { View } from "ui/core/view";
-import { ZoneComponent } from "../zone/zone.component";
+import { RingComponent } from "../ring/ring.component";
 import { Ring } from "../../models/ring";
 import { RingService } from "../../shared/ring/ring.service";
 
@@ -29,7 +29,7 @@ export class RoomComponent{
 
   
   player: Player;
-  zone: Ring;
+  ring: Ring;
   enemy: Enemy;
   room: Room;
   spell: Spell;
@@ -38,13 +38,14 @@ export class RoomComponent{
   clearedRooms = [];
 
   constructor(private route: ActivatedRoute, private router: Router, private playerService: PlayerService, private enemyService: EnemyService, 
-  private roomService: RoomService, private ringService: RingService, private spellService: SpellService, private combatService: CombatService, private page: Page) {
+  private roomService: RoomService, private ringService: RingService, private spellService: SpellService, private combatService: CombatService,
+  private page: Page) {
     this.player = this.playerService.getPlayer();
     this.player.spells = this.spellService.getPlayerSpells();
-    this.player.clearedRooms = [];
     this.player.health = 60;
     this.player.mana = 60;
-    this.zone = this.ringService.getRingById(Number.parseInt(this.route.snapshot.paramMap.get('id')));
+    this.player.clearedRooms = this.player.clearedRooms || [];
+    this.ring = this.ringService.getRingById(Number.parseInt(this.route.snapshot.paramMap.get('id')));
     this.room = this.roomService.getRoomById(Number.parseInt(this.route.snapshot.paramMap.get('id')));
     this.enemy = this.enemyService.getRandomEnemy(this.room);
   }
@@ -54,16 +55,19 @@ export class RoomComponent{
     switch(result){
       case CombatStatus.PlayerDead: 
         this.playerService.deadPlayer();
-        this.toZone(this.zone.id);
+        this.toRing(this.room.ringId);
         break;
       case CombatStatus.RoomCleared:
         this.clearRoom();
-        this.ringService.setRingCleared(this.player, this.zone.id);
+        this.ringService.setRingCleared(this.player, this.room.ringId);
+        this.ringService.setRing2Cleared(this.player, this.room.ringId);
+        this.ringService.setRing3Cleared(this.player, this.room.ringId);
+        this.ringService.setRing4Cleared(this.player, this.room.ringId);
+        this.ringService.setGameCleared(this.player, this.room.ringId);
 
         break;
     }
   }
-
   getEnemySpell() {
     return this.spellService.getRandomSpell(this.enemy);
   }
@@ -75,7 +79,7 @@ export class RoomComponent{
       this.cleared = true;
       this.roomService.setRoomCleared(this.player, this.room.id);
       this.playerService.updateStats(this.player, this.player.health, this.player.mana);
-      this.toZone(this.zone.id);
+      this.toRing(this.room.ringId);
       console.log(JSON.stringify(this.player.clearedRooms));
     } 
   }
@@ -87,9 +91,14 @@ export class RoomComponent{
     this.cleared = false;
   }
 
-  toZone(zoneId: Number){
+  toRing(ringId : Number){
     this.playerService.getPlayer();
-    this.router.navigate(["/zone", zoneId]);
+    this.router.navigate(["/ring", this.room.ringId]);
+  }
+
+  where(){
+    console.log(JSON.stringify(this.ring));
+    console.log(JSON.stringify(this.room));
   }
 
 }

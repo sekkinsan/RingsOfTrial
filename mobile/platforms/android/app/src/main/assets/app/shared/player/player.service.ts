@@ -44,8 +44,9 @@ export class PlayerService {
     this.saveManager.savePlayer(player);
   }
 
-  clearedRing(player: Player, zoneId: number){
-    player.clearedRings.push(zoneId);
+  clearedRing(player: Player, ringId: number){
+    player.clearedRings = player.clearedRings || [];
+    player.clearedRings.push(ringId);
     this.saveManager.savePlayer(player);
   }
 

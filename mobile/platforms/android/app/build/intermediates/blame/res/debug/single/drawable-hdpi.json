@@ -1,15 +1,7 @@
 [
     {
-        "merged": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\mygame\\mobile\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\logo.png",
-        "source": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\mygame\\mobile\\platforms\\android\\app\\src\\main\\res\\drawable-hdpi\\logo.png"
-    },
-    {
         "merged": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\RingsOfTrial\\mobile\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon.png",
         "source": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\RingsOfTrial\\mobile\\platforms\\android\\app\\src\\main\\res\\drawable-hdpi\\icon.png"
-    },
-    {
-        "merged": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\mygame\\mobile\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon.png",
-        "source": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\mygame\\mobile\\platforms\\android\\app\\src\\main\\res\\drawable-hdpi\\icon.png"
     },
     {
         "merged": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\RingsOfTrial\\mobile\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\logo.png",
@@ -18,9 +10,5 @@
     {
         "merged": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\RingsOfTrial\\mobile\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\background.png",
         "source": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\RingsOfTrial\\mobile\\platforms\\android\\app\\src\\main\\res\\drawable-hdpi\\background.png"
-    },
-    {
-        "merged": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\mygame\\mobile\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\background.png",
-        "source": "C:\\Users\\JYUN3\\Desktop\\Projects\\NativeScript\\mygame\\mobile\\platforms\\android\\app\\src\\main\\res\\drawable-hdpi\\background.png"
     }
 ]

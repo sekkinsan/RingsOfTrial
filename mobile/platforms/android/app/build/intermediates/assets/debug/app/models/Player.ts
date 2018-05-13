@@ -1,20 +1,21 @@
 import { Spell } from "./spell";
 import { Inventory } from "./inventory";
-import { Zone } from "./zone";
 import { Ring } from "./ring";
 import { Room } from "./room";
 
 export class Player {
+  spellService: any;
   id: number;
   username: string;
   password: string;
   health: number;
   mana: number;
-  //spells: Spell[];
+  spells: Spell[];
   inventory: Inventory;
   currentRing: number;
-  currentZone: number;
   currentRoom: number;
+  clearedRooms: number[];
+  clearedRings: number[];
   
 
   //constructor(){

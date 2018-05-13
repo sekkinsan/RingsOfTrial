@@ -1,3 +1,7 @@
 .combatText {
     display: block;
 }
+
+Page {
+    background-image: ~/images/dungeon-door.jpg;
+}

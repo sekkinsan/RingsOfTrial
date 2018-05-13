@@ -1,8 +1,12 @@
+Page {
+  background-image: ~/images/dungeon-door.jpg;
+}
+
 StackLayout {
     margin-left: 30;
     margin-right: 30;
     padding-bottom: 15;
-    padding-top: 100px;
+    padding-top: 950px;
     border-color: red;
   }
   Image {
@@ -20,4 +24,6 @@ StackLayout {
     color: white;
     margin-top: 20;
   }
+
+
   

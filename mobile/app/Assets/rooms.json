@@ -2,18 +2,66 @@
     "rooms": [
       {
         "id": 1,
-        "mobs": [1,2,3,4]
+        "mobs": [1],
+        "ringId": 1
       },
       {
         "id": 2,
-        "mobs": [6,7,8,9]
+        "mobs": [6],
+        "ringId": 1
       },
       {
         "id": 3,
-        "mobs": [11,12,13,14]
+        "mobs": [11],
+        "ringId": 1
       },
       { "id": 4,
-        "mobs": [5,10,15]
+        "mobs": [2],
+        "ringId": 2
+      },
+      { "id": 5,
+        "mobs": [7],
+        "ringId": 2
+      },
+      { "id": 6,
+        "mobs": [12],
+        "ringId": 2
+      },
+      { "id": 7,
+        "mobs": [3],
+        "ringId": 3
+      },
+      { "id": 8,
+        "mobs": [8],
+        "ringId": 3
+      },
+      { "id": 9,
+        "mobs": [13],
+        "ringId": 3
+      },
+      { "id": 10,
+        "mobs": [4],
+        "ringId": 4
+      },
+      { "id": 11,
+        "mobs": [9],
+        "ringId": 4
+      },
+      { "id": 12,
+        "mobs": [14],
+        "ringId": 4
+      },
+      { "id": 13,
+        "mobs": [5],
+        "ringId": 5
+      },
+      { "id": 14,
+        "mobs": [10],
+        "ringId": 5
+      },
+      { "id": 15,
+        "mobs": [15],
+        "ringId": 5
       }
   ]
 }

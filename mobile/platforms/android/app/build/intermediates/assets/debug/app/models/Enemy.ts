@@ -1,6 +1,5 @@
 import { Spell } from "./spell";
 import { Inventory } from "./inventory";
-import { Zone } from "./zone";
 import { Ring } from "./ring";
 import { Room } from "./room";
 
@@ -9,10 +8,9 @@ export class Enemy {
   name: string;
   health: number;
   mana: number;
-  spells: Spell[];
+  spells: string;
   inventory: Inventory;
   currentRing: number;
-  currentZone: number;
   currentRoom: number;
   
 

@@ -1,16 +1,20 @@
 {
-    "Easy": [
+    "spells": {
+      "Easy": [
       {
+        "id": 1,
         "name": "punch",
         "mana": 1,
         "damage": 1
       },
       {
+        "id": 2,
         "name": "ray",
         "mana": 2,
         "damage": 3
       },
       {
+        "id": 3,
         "name": "kick",
         "mana": 1,
         "damage": 1
@@ -18,16 +22,19 @@
     ],
     "Int": [
       {
+        "id": 1,
         "name": "punch",
         "mana": 2,
         "damage": 2
       },
       {
+        "id": 2,
         "name": "ray",
         "mana": 2,
         "damage": 2
       },
       {
+        "id": 3,
         "name": "kick",
         "mana": 2,
         "damage": 3
@@ -35,16 +42,19 @@
     ],
     "Boss": [
       {
+        "id": 1,
         "name": "punch",
         "mana": 5,
         "damage": 5
       },
       {
+        "id": 2,
         "name": "ray",
         "mana": 4,
         "damage": 4
       },
       {
+        "id": 3,
         "name": "kick",
         "mana": 3,
         "damage": 3
@@ -52,16 +62,19 @@
     ],
     "Ken": [
       {
+        "id": 1,
         "name": "Kagune",
         "mana": 2,
         "damage": 4
       },
       {
+        "id": 2,
         "name": "bite",
         "mana": 1,
         "damage": 1
       },
       {
+        "id": 3,
         "name": "swipe",
         "mana": 1,
         "damage": 2
@@ -69,16 +82,19 @@
     ],
     "Luffy": [
       {
+        "id": 1,
         "name": "Gomu Gomu no Pistol",
         "mana": 3,
         "damage": 5
       },
       {
+        "id": 2,
         "name": "Jet Bazooka",
         "mana": 4,
         "damage": 6
       },
       {
+        "id": 3,
         "name": "Gear 4 - Elephant Gun",
         "mana": 6,
         "damage": 9
@@ -86,19 +102,23 @@
     ],
     "Jacob": [
       {
+        "id": 1,
         "name": "Flick",
         "mana": 5,
         "damage": 6
       },
       {
+        "id": 2,
         "name": "Slap",
         "mana": 5,
         "damage": 6
       },
       {
+        "id": 3,
         "name": "KABLOOIE",
         "mana": 10,
         "damage": 10
       }
     ]
+  }
   }

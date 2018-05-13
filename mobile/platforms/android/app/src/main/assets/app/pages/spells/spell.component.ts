@@ -56,7 +56,7 @@ export class SpellComponent {
     }
   
     alert(this.spellService.create(this.player.spells));
-    console.log(JSON.stringify(this.player.spells));
+    this.spellsMade = true;
   }
 
   toggleDisplay() {
