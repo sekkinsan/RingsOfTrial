@@ -27,31 +27,10 @@ export class RingService {
   }
 
   setRingCleared(player: Player, id: number){
-    if ((player.clearedRooms.indexOf(1) > -1) && (player.clearedRooms.indexOf(2)) > -1 && (player.clearedRooms.indexOf(3) > -1)) {
-    this.playerService.clearedRing(player, id);
-      if ((player.clearedRooms.indexOf(4) > -1) && (player.clearedRooms.indexOf(5)) > -1 && (player.clearedRooms.indexOf(6) > -1)) {
-        this.playerService.clearedRing(player, id);
-          if ((player.clearedRooms.indexOf(7) > -1) && (player.clearedRooms.indexOf(8)) > -1 && (player.clearedRooms.indexOf(9) > -1)) {
-            this.playerService.clearedRing(player, id);
-              if ((player.clearedRooms.indexOf(10) > -1) && (player.clearedRooms.indexOf(11)) > -1 && (player.clearedRooms.indexOf(12) > -1)) {
-                this.playerService.clearedRing(player, id);
-                  if ((player.clearedRooms.indexOf(13) > -1) && (player.clearedRooms.indexOf(14)) > -1 && (player.clearedRooms.indexOf(15) > -1)) {
-                    this.playerService.clearedRing(player, id);
-                  } else null
-              } else null
-          } else null
-      } else null
-
-    alert("YOU CLEARED THIS RING!");
-    //clear out clearedRooms array each time you clear a ring
-    
-    } 
-
-    //old function
-    // if (player.clearedRooms.length == 3) {
-    //   this.playerService.clearedRing(player, id);
-    //   alert("YOU CLEARED THIS RING!");
-    //   } 
+    if (player.clearedRooms.length == 3) {
+      this.playerService.clearedRing(player, id);
+      alert("YOU CLEARED THIS RING!");
+      } 
 
     //testing loops?
     //work on loop function to loop through array?
@@ -63,6 +42,34 @@ export class RingService {
     // for (let i: number = 0; i < player.clearedRooms.length; i++) {
 
     // }
+  }
+
+  setRing2Cleared(player: Player, id: number){
+    if (player.clearedRooms.length == 6) {
+      this.playerService.clearedRing(player, id);
+      alert("YOU CLEARED THIS RING!");
+    }
+  }
+
+  setRing3Cleared(player: Player, id: number){
+    if (player.clearedRooms.length == 9) {
+      this.playerService.clearedRing(player, id);
+      alert("YOU CLEARED THIS RING!");
+    }
+  }
+
+  setRing4Cleared(player: Player, id: number) {
+    if (player.clearedRooms.length == 12) {
+      this.playerService.clearedRing(player, id);
+      alert("YOU CLEARED THIS RING!");
+    }
+  }
+
+  setGameCleared(player: Player, id: number) {
+    if (player.clearedRooms.length == 15) {
+      this.playerService.clearedRing(player, id);
+      alert("YOU ESCAPED!");
+    }
   }
 
   getRingById(id: Number) : Ring {

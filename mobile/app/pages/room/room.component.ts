@@ -60,6 +60,10 @@ export class RoomComponent{
       case CombatStatus.RoomCleared:
         this.clearRoom();
         this.ringService.setRingCleared(this.player, this.room.ringId);
+        this.ringService.setRing2Cleared(this.player, this.room.ringId);
+        this.ringService.setRing3Cleared(this.player, this.room.ringId);
+        this.ringService.setRing4Cleared(this.player, this.room.ringId);
+        this.ringService.setGameCleared(this.player, this.room.ringId);
 
         break;
     }
