@@ -26,7 +26,8 @@ var LoginComponent = /** @class */ (function () {
         this.router.navigate(["/spell"]);
     };
     LoginComponent.prototype.signUp = function () {
-        alert(this.playerService.create(this.player));
+        this.playerService.create(this.player);
+        alert("Welcome to the Rings of Trial");
         this.isLoggingIn = true;
     };
     LoginComponent.prototype.toggleDisplay = function () {

@@ -25,7 +25,6 @@ var SpellComponent = /** @class */ (function () {
         }
     };
     SpellComponent.prototype.continue = function () {
-        console.log(JSON.stringify(this.player.spells));
         this.spellService.getPlayerSpells();
         this.router.navigate(["/map"]);
     };
@@ -34,13 +33,14 @@ var SpellComponent = /** @class */ (function () {
         this.player.spells.push(attack);
         for (var i = 1; i < this.spellNames.length; i++) {
             var newSpell = new spell_1.Spell();
-            newSpell.damage = 3;
-            newSpell.mana = 2;
+            newSpell.damage = Math.floor((Math.random() * Math.floor(6) + 2));
+            newSpell.mana = Math.floor((Math.random() * Math.floor(5) + 2));
             newSpell.name = this.spellNames[i];
             newSpell.id = i;
             this.player.spells.push(newSpell);
         }
-        alert(this.spellService.create(this.player.spells));
+        this.spellService.create(this.player.spells);
+        alert("Hah! Good luck with your escape..");
         this.spellsMade = true;
     };
     SpellComponent.prototype.toggleDisplay = function () {

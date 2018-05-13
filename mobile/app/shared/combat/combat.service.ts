@@ -46,19 +46,19 @@ export class CombatService {
 
   //for attack since attack isn't a spell..
   processPlayerAttack(player: Player, enemy: Enemy, spell: Spell, combatArray: string[]){
-    combatArray.push(`You are about to use ${spell.name}`);
+    combatArray[0] = (`You used ${spell.name}`);
     enemy.health = enemy.health - spell.damage;
     player.mana = player.mana - spell.mana;
-    combatArray.push(`You dealt ${spell.damage} damage using ${spell.mana} mana`);
+    combatArray[1] = (`You dealt ${spell.damage} damage using ${spell.mana} mana`);
     console.log(JSON.stringify(combatArray.join('\n')));
   }
 
   processEnemyAttack(player: Player, enemy: Enemy, combatArray: string[]){
     let enemySpell:Spell = this.spellService.getRandomSpell(enemy);
-    combatArray.push(`ENEMY CAST ${enemySpell.name}`);
+    combatArray[2] = (`Enemy casted ${enemySpell.name}`);
     enemy.mana = enemy.mana - enemySpell.mana;
     player.health = player.health - enemySpell.damage;
-    combatArray.push(`You lost ${enemySpell.damage} hp`);
+    combatArray[3] = (`You lost ${enemySpell.damage} hp`);
     console.log(JSON.stringify(combatArray));
   }
 

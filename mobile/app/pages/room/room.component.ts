@@ -74,7 +74,7 @@ export class RoomComponent{
 
   clearRoom(){
     if (this.enemy.health <= 0) {
-      alert("YOU CLEARED THIS ROOM!");
+      alert("You've cleared this room!");
       console.log(JSON.stringify(this.room.id));
       this.cleared = true;
       this.roomService.setRoomCleared(this.player, this.room.id);

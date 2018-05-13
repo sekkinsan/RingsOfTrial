@@ -37,7 +37,8 @@ export class LoginComponent implements OnInit{
   }
 
   signUp() {
-    alert(this.playerService.create(this.player));
+    this.playerService.create(this.player);
+    alert("Welcome to the Rings of Trial");
     this.isLoggingIn = true;
   }
 

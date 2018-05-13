@@ -65,19 +65,19 @@
         "id": 1,
         "name": "Kagune",
         "mana": 2,
-        "damage": 4
+        "damage": 5
       },
       {
         "id": 2,
         "name": "bite",
-        "mana": 1,
-        "damage": 1
+        "mana": 2,
+        "damage": 4
       },
       {
         "id": 3,
         "name": "swipe",
-        "mana": 1,
-        "damage": 2
+        "mana": 2,
+        "damage": 7
       }
     ],
     "Luffy": [
@@ -85,13 +85,13 @@
         "id": 1,
         "name": "Gomu Gomu no Pistol",
         "mana": 3,
-        "damage": 5
+        "damage": 8
       },
       {
         "id": 2,
         "name": "Jet Bazooka",
         "mana": 4,
-        "damage": 6
+        "damage": 7
       },
       {
         "id": 3,
@@ -105,7 +105,7 @@
         "id": 1,
         "name": "Flick",
         "mana": 5,
-        "damage": 6
+        "damage": 8
       },
       {
         "id": 2,
