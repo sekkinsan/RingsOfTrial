@@ -28,7 +28,7 @@ As a capstone, I really wanted to create a game since I'm interested in video ga
 There are still more features I hope to include in later updates for the Rings of Trial, as well as improving the combat system and add loot when enemies are defeated. I learned so much from creating this application through NativeScript, especially with how powerful NativeScript really is in the development of mobile applications for multiple platforms. My next step would be to brush up the iOS release for this prototype and continue to add rings for the player to try and escape from. 
 
 ## Link to APK
-Please see link below to access and download the APK for Android OS.
+Please see link below to access and download the APK for Android OS. <br>
 https://drive.google.com/file/d/1Umav1Op7Ba-RmZS62MC0N2NtsAGVJgQP/view?usp=sharing
 
 
